@@ -26,7 +26,8 @@
 		"plugin:effector/recommended",
 		"plugin:effector/react",
 		"plugin:jsx-a11y/recommended",
-		"plugin:@typescript-eslint/recommended"
+		"plugin:@typescript-eslint/recommended",
+		"plugin:storybook/recommended"
 	],
 	"plugins": [
 		"react",
@@ -35,7 +36,8 @@
 		"jest",
 		"effector",
 		"jsx-a11y",
-		"@typescript-eslint"
+		"@typescript-eslint",
+		"storybook"
 	],
 	"rules": {
 		/* STANDARD */
