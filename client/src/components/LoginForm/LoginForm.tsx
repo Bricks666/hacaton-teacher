@@ -9,6 +9,12 @@ import { Button } from "../../ui/Button";
 import { Checkbox } from "../../ui/Checkbox";
 import { Field } from "../../ui/Field";
 import { useCreateSubmitHandler } from "../../hooks";
+import {
+	MAX_LOGIN_LENGTH,
+	MAX_PASSWORD_LENGTH,
+	MIN_LOGIN_LENGTH,
+	MIN_PASSWORD_LENGTH,
+} from "../../constants";
 
 const initialValues: Partial<LoginRequest> = {
 	login: "",
@@ -17,8 +23,30 @@ const initialValues: Partial<LoginRequest> = {
 };
 
 const validationSchema = Joi.object<LoginRequest>({
-	login: Joi.string().alphanum().min(6).max(30).required(),
-	password: Joi.string().min(6).max(32).required(),
+	login: Joi.string()
+		.pattern(new RegExp(/[a-z0-9.,_!?]{6,32}/, "i"))
+		.min(MIN_LOGIN_LENGTH)
+		.max(MAX_LOGIN_LENGTH)
+		.required()
+		.messages({
+			"string.pattern.base":
+				"Пароль должен содержать только латинские буквы, цифры и символы '.', ',', '_', '!', '?'",
+			"string.min": `Логин должен быть длиннее ${MIN_LOGIN_LENGTH}`,
+			"string.max": `Логин должен быть короче ${MAX_LOGIN_LENGTH}`,
+			"any.required": "Логин не должен быть пустым",
+		}),
+	password: Joi.string()
+		.pattern(new RegExp(/[a-z0-9.,_!?]{6,32}/, "i"))
+		.min(MIN_PASSWORD_LENGTH)
+		.max(MAX_PASSWORD_LENGTH)
+		.required()
+		.messages({
+			"string.pattern.base":
+				"Пароль должен содержать только латинские буквы, цифры и символы '.', ',', '_', '!', '?'",
+			"string.min": `Пароль должен быть длиннее ${MIN_LOGIN_LENGTH}`,
+			"string.max": `Пароль должен быть короче ${MAX_LOGIN_LENGTH}`,
+			"any.required": "Пароль не должен быть пустым",
+		}),
 	remember: Joi.boolean(),
 });
 

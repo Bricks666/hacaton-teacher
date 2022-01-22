@@ -9,7 +9,6 @@ interface InputComponent extends UseFormRegisterReturn, ClassNameComponent {
 
 export const Input = forwardRef<HTMLInputElement, InputComponent>(
 	({ className, label, type, ...fieldControls }, ref) => {
-		console.log(fieldControls);
 		return (
 			<label className={className}>
 				{label}

@@ -1,1 +1,2 @@
-export * from "./loginRequest";
+export * from "./LoginRequest";
+export * from "./RegistrationRequest";
