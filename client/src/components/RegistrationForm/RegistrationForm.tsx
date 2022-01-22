@@ -1,7 +1,8 @@
 import { joiResolver } from "@hookform/resolvers/joi";
 import Joi from "joi";
-import React, { FC } from "react";
+import React, { FC, useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { Location, useNavigate } from "react-router-dom";
 import {
 	MAX_LOGIN_LENGTH,
 	MAX_PASSWORD_LENGTH,
@@ -9,8 +10,8 @@ import {
 	MIN_PASSWORD_LENGTH,
 } from "../../constants";
 import { registrationFx } from "../../effects";
-import { useCreateSubmitHandler } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
+import { useLocationState } from "../../hooks";
+import { ClassNameComponent, SubmitHandler } from "../../interfaces/common";
 import { RegistrationRequest } from "../../interfaces/requests";
 import { Button } from "../../ui/Button";
 import { Field } from "../../ui/Field";
@@ -52,13 +53,27 @@ const validationSchema = Joi.object<RegistrationRequest>({
 });
 
 export const RegistrationForm: FC<ClassNameComponent> = () => {
-	const { handleSubmit, register, reset, setError, formState } =
+	const { handleSubmit, register, reset, formState } =
 		useForm<RegistrationRequest>({
 			resolver: joiResolver(validationSchema),
 			defaultValues: initialValues,
 		});
 
-	const onSubmit = useCreateSubmitHandler(registrationFx, reset, setError);
+	const state = useLocationState<Location>();
+	const navigate = useNavigate();
+
+	const onSubmit = useCallback<SubmitHandler<RegistrationRequest>>(
+		async (values) => {
+			try {
+				await registrationFx(values);
+				reset();
+				navigate("/login", { replace: true, state });
+			} catch (e) {
+				console.log(e);
+			}
+		},
+		[navigate, reset, state]
+	);
 
 	const { errors, isDirty, isSubmitting } = formState;
 	const { login, repeatPassword, password } = errors;
@@ -73,12 +88,14 @@ export const RegistrationForm: FC<ClassNameComponent> = () => {
 			/>
 			<Field
 				{...register("password")}
+				type="password"
 				label="Пароль"
 				error={password}
 				disabled={isSubmitting}
 			/>
 			<Field
 				{...register("repeatPassword")}
+				type="password"
 				label="Повторите пароль"
 				error={repeatPassword}
 				disabled={isSubmitting}

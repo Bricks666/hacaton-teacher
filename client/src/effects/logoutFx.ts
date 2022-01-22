@@ -1,10 +1,8 @@
 import { createEffect } from "effector";
-import { FormSubmitHandler } from "../interfaces/common";
+import { SubmitHandler } from "../interfaces/common";
 
-export const logoutFx = createEffect<FormSubmitHandler<unknown>>(() => {
+export const logoutFx = createEffect<SubmitHandler<unknown>>(() => {
 	return new Promise((resolve) => {
-		setTimeout(() => {
-			resolve(null);
-		}, 3000);
+		setTimeout(resolve, 3000);
 	});
 });

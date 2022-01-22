@@ -5,6 +5,7 @@ import { RegistrationPage } from "../pages/RegistrationPage";
 interface Route {
 	path: string;
 	Component: ComponentType;
+	isOnlyAuth?: boolean;
 }
 
 export const routes: Route[] = [
@@ -15,5 +16,6 @@ export const routes: Route[] = [
 	{
 		Component: RegistrationPage,
 		path: "/registration",
+		isOnlyAuth: true,
 	},
 ];

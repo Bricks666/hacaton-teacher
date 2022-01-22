@@ -1,12 +1,12 @@
 import { createEffect } from "effector";
-import { FormSubmitHandler } from "../interfaces/common";
+import { SubmitHandler } from "../interfaces/common";
 import { RegistrationRequest } from "../interfaces/requests";
 
-export const registrationFx = createEffect<
-	FormSubmitHandler<RegistrationRequest>
->((values) => {
-	console.log(values);
-	return new Promise((resolve) => {
-		setTimeout(() => resolve(null), 3000);
-	});
-});
+export const registrationFx = createEffect<SubmitHandler<RegistrationRequest>>(
+	(values) => {
+		console.log(values);
+		return new Promise((resolve) => {
+			setTimeout(resolve, 3000);
+		});
+	}
+);

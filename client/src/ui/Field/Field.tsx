@@ -1,10 +1,11 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, HTMLInputTypeAttribute } from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { ClassNameComponent } from "../../interfaces/common";
 import { Input } from "../Input";
 
 interface FieldComponent extends ClassNameComponent, UseFormRegisterReturn {
 	label: string;
+	type?: HTMLInputTypeAttribute;
 	error?: FieldError;
 	inputClassName?: string;
 	errorClassName?: string;
