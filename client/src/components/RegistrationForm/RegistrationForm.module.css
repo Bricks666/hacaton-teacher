@@ -1,0 +1,14 @@
+.registrationForm {
+	display: grid;
+
+	grid-template-columns: repeat(2, 250px);
+
+	column-gap: 40px;
+  row-gap: 10px;
+}
+
+.button {
+	grid-column: span 2;
+
+	justify-self: center;
+}

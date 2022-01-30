@@ -1,0 +1,23 @@
+.registrationPage {
+	display: grid;
+
+	grid-template-columns: 1fr auto 1fr;
+	grid-template-rows: 336px auto 1fr;
+}
+
+.logo,
+.registrationForm,
+.link {
+	grid-column: 2;
+}
+
+.logo {
+	align-self: center;
+	justify-self: center;
+
+	width: 280px;
+}
+
+.link {
+	text-align: center;
+}

@@ -17,7 +17,7 @@ import {
 } from "../../constants";
 import { useLocationState } from "../../hooks";
 import { createFullPath } from "../../utils";
-import { loginFx } from "../../models/Login";
+import { loginFx } from "../../models/User";
 
 import LoginFormStyle from "./LoginForm.module.css";
 
