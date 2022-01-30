@@ -1,12 +1,15 @@
+import classNames from "classnames";
 import React, { FC, MouseEventHandler } from "react";
 import { ClassNameComponent } from "../../interfaces/common";
+
+import ButtonStyle from "./Button.module.css";
 
 type ButtonType = "submit" | "reset" | "button";
 
 interface ButtonComponent extends ClassNameComponent {
-	onClick?: MouseEventHandler<HTMLButtonElement>;
-	type?: ButtonType;
-	disabled?: boolean;
+	readonly onClick?: MouseEventHandler<HTMLButtonElement>;
+	readonly type?: ButtonType;
+	readonly disabled?: boolean;
 }
 
 export const Button: FC<ButtonComponent> = ({
@@ -18,7 +21,7 @@ export const Button: FC<ButtonComponent> = ({
 }) => {
 	return (
 		<button
-			className={className}
+			className={classNames(ButtonStyle.button, className)}
 			onClick={onClick}
 			type={type}
 			disabled={disabled}

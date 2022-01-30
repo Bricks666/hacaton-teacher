@@ -1,0 +1,24 @@
+.loginPage {
+	display: grid;
+
+	grid-template-columns: 1fr 360px 1fr;
+	grid-template-rows: 336px auto 1fr;
+}
+
+.loginForm,
+.logo,
+.link {
+	grid-column: 2;
+}
+
+.logo {
+	align-self: center;
+}
+
+.loginForm {
+	align-self: center;
+}
+
+.link {
+	align-self: start;
+}

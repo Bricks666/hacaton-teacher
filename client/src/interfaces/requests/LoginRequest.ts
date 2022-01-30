@@ -1,5 +1,5 @@
 export interface LoginRequest {
-	login: string;
-	password: string;
-	remember: boolean;
+	readonly login: string;
+	readonly password: string;
+	readonly remember: boolean;
 }

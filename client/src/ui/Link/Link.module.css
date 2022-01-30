@@ -1,0 +1,14 @@
+.link {
+	font-size: inherit;
+	color: var(--second-color-lighter);
+	text-decoration: none;
+}
+
+.link:hover {
+	text-decoration: underline;
+}
+
+.link:focus-visible {
+	text-decoration: underline;
+	outline: 0;
+}

@@ -1,0 +1,12 @@
+.form {
+	display: grid;
+
+  row-gap: 10px;
+
+}
+
+.button {
+  margin-top: 21px;
+
+	justify-self: center;
+}

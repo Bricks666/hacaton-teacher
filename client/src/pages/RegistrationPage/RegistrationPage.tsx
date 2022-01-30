@@ -1,13 +1,18 @@
 import React, { FC } from "react";
 import { RegistrationForm } from "../../components/RegistrationForm";
 import { ClassNameComponent } from "../../interfaces/common";
-import { SectionHeader } from "../../ui/SectionHeader";
+import { Logo } from "../../ui/Logo";
+import { Paragraph } from "../../ui/Paragraph";
+import { SaveLink } from "../../components/SaveLink";
 
 export const RegistrationPage: FC<ClassNameComponent> = () => {
 	return (
 		<main>
-			<SectionHeader>Регистрация</SectionHeader>
+			<Logo type="image and text" />
 			<RegistrationForm />
+			<Paragraph>
+				Already got an account? <SaveLink to="/login">Log in</SaveLink>
+			</Paragraph>
 		</main>
 	);
 };

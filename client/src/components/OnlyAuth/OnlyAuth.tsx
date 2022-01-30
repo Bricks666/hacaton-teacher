@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { useIsLogin } from "../../hooks";
 
 interface OnlyAuthComponent {
-	to?: string;
+	readonly to?: string;
 }
 
 export const OnlyAuth: FC<OnlyAuthComponent> = ({

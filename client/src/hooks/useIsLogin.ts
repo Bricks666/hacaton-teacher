@@ -1,7 +1,7 @@
-import { useStoreMap } from "effector-react";
+import { useStore } from "effector-react";
+import { $LoginStore } from "../models/Login";
 import { SimpleFunction } from "../interfaces/common";
-import { $LoginStore } from "../stores";
 
 export const useIsLogin: SimpleFunction<boolean> = () => {
-	return useStoreMap($LoginStore, (state) => state.isLogin);
+	return useStore($LoginStore);
 };

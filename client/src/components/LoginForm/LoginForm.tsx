@@ -3,7 +3,7 @@ import Joi from "joi";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { Location, useNavigate } from "react-router-dom";
-import { loginFx } from "../../effects";
+import classNames from "classnames";
 import { ClassNameComponent, SubmitHandler } from "../../interfaces/common";
 import { LoginRequest } from "../../interfaces/requests";
 import { Button } from "../../ui/Button";
@@ -17,6 +17,9 @@ import {
 } from "../../constants";
 import { useLocationState } from "../../hooks";
 import { createFullPath } from "../../utils";
+import { loginFx } from "../../models/Login";
+
+import LoginFormStyle from "./LoginForm.module.css";
 
 const initialValues: Partial<LoginRequest> = {
 	login: "",
@@ -52,7 +55,7 @@ const validationSchema = Joi.object<LoginRequest>({
 	remember: Joi.boolean(),
 });
 
-export const LoginForm: FC<ClassNameComponent> = () => {
+export const LoginForm: FC<ClassNameComponent> = ({ className }) => {
 	const { handleSubmit, register, reset, formState } = useForm<LoginRequest>({
 		defaultValues: initialValues,
 		resolver: joiResolver(validationSchema),
@@ -79,7 +82,10 @@ export const LoginForm: FC<ClassNameComponent> = () => {
 	);
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
+		<form
+			className={classNames(LoginFormStyle.form, className)}
+			onSubmit={handleSubmit(onSubmit)}
+		>
 			<Field {...register("login")} label="Логин" error={login} />
 			<Field
 				{...register("password")}
@@ -88,7 +94,11 @@ export const LoginForm: FC<ClassNameComponent> = () => {
 				error={password}
 			/>
 			<Checkbox {...register("remember")} label="Запомнить меня" />
-			<Button type="submit" disabled={isSubmitting || !isDirty}>
+			<Button
+				className={LoginFormStyle.button}
+				type="submit"
+				disabled={isSubmitting || !isDirty}
+			>
 				Login
 			</Button>
 		</form>

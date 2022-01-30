@@ -3,9 +3,9 @@ import { LoginPage } from "../pages/LoginPage";
 import { RegistrationPage } from "../pages/RegistrationPage";
 
 interface Route {
-	path: string;
-	Component: ComponentType;
-	isOnlyAuth?: boolean;
+	readonly path: string;
+	readonly Component: ComponentType;
+	readonly isOnlyAuth?: boolean;
 }
 
 export const routes: Route[] = [
@@ -16,6 +16,5 @@ export const routes: Route[] = [
 	{
 		Component: RegistrationPage,
 		path: "/registration",
-		isOnlyAuth: true,
 	},
 ];

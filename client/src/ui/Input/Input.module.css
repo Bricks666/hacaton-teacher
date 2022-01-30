@@ -1,0 +1,37 @@
+.wrapper {
+	display: grid;
+}
+
+.label {
+	grid-row: 1;
+
+	font-size: 16px;
+	line-height: 1.5em;
+	font-weight: 500;
+
+	transform: translateY(125%) translateX(10px);
+	transition-property: transform;
+	transition-duration: 0.15s;
+	transition-timing-function: ease-in-out;
+}
+
+.input {
+	padding: 8px;
+
+	font-size: 16px;
+	line-height: 1.5em;
+	font-weight: 500;
+
+	border: 0;
+	border-bottom: 2px solid var(--main-color);
+}
+
+.input:focus-visible ~ .label,
+.input:invalid ~ .label,
+.input:valid ~ .label {
+	transform: translate(0, 0);
+}
+
+.input:focus-visible {
+	border-bottom-color: var(--main-color-darker);
+}

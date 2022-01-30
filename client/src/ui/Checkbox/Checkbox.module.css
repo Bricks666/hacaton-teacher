@@ -1,0 +1,37 @@
+.label {
+	position: relative;
+
+	font-size: 12px;
+	line-height: 2em;
+	letter-spacing: -1%;
+}
+
+.label::before {
+	content: "";
+
+	display: inline-block;
+
+	position: absolute;
+	top: 50%;
+	left: -1.5em;
+
+	width: 1.2em;
+	height: 1.2em;
+
+	border-radius: 2px;
+	border: 2px solid var(--main-color);
+
+	transform: translateY(-50%);
+}
+
+.input:checked ~ .label::before {
+	background-color: var(--main-color);
+	background-image: url("./check.svg");
+	background-repeat: no-repeat;
+	background-size: 0.8em;
+	background-position: center;
+}
+
+.input:focus-visible ~ .label::before {
+	box-shadow: var(--main-color-darker) 0 0 0 2px;
+}

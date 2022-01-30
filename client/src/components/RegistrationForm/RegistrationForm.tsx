@@ -9,10 +9,10 @@ import {
 	MIN_LOGIN_LENGTH,
 	MIN_PASSWORD_LENGTH,
 } from "../../constants";
-import { registrationFx } from "../../effects";
 import { useLocationState } from "../../hooks";
 import { ClassNameComponent, SubmitHandler } from "../../interfaces/common";
 import { RegistrationRequest } from "../../interfaces/requests";
+import { registrationFx } from "../../models/Login";
 import { Button } from "../../ui/Button";
 import { Field } from "../../ui/Field";
 

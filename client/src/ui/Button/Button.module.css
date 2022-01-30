@@ -1,0 +1,26 @@
+.button {
+	min-width: 108px;
+
+	padding: 8px 33px;
+
+	font-size: 16px;
+	line-height: 1.5em;
+	letter-spacing: -1%;
+	font-weight: 500;
+	color: white;
+	font-family: inherit;
+
+	border-radius: 10px;
+	border: 0;
+
+	background-color: var(--main-color);
+}
+
+.button:disabled {
+	background-color: var(--main-color-lighter);
+}
+
+.button:focus-visible {
+	box-shadow: var(--main-color-darker) 0 0 0 4px;
+  outline: 0;
+}
