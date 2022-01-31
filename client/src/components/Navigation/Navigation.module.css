@@ -1,0 +1,10 @@
+.nav {
+	height: min-content;
+}
+
+.list {
+	display: flex;
+
+	align-items: center;
+	column-gap: 22px;
+}

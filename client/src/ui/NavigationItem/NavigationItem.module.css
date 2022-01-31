@@ -1,0 +1,12 @@
+.item {
+	color: var(--second-color);
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.5em;
+	letter-spacing: -1%;
+}
+
+.item__active {
+	color: var(--main-color);
+}

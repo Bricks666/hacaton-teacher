@@ -1,0 +1,19 @@
+.header {
+	display: flex;
+
+	align-items: center;
+
+	padding: 30px 38px;
+}
+
+.logo {
+	width: 150px;
+}
+
+.navigation {
+	margin-left: 170px;
+}
+
+.profileLink {
+	margin-left: auto;
+}
