@@ -1,0 +1,1 @@
+export { DataTerm } from "./DataTerm";

@@ -1,14 +1,10 @@
-.logo {
-	object-fit: cover;
-}
-
 .caption {
 	font-size: 12px;
 	line-height: 2em;
 }
 
 .figure {
-  display: grid;
+	display: grid;
 
-  row-gap: 5px;
+	row-gap: 5px;
 }

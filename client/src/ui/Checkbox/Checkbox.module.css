@@ -3,7 +3,7 @@
 
 	font-size: 12px;
 	line-height: 2em;
-	letter-spacing: -1%;
+	letter-spacing: -0.011em;;
 }
 
 .label::before {

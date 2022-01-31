@@ -11,7 +11,7 @@ export interface UserStore {
 	readonly organization: string;
 }
 
-export const $LoginStore = createStore<boolean>(false, {
+export const $LoginStore = createStore<boolean>(true, {
 	name: "LoginStore",
 });
 
@@ -28,6 +28,10 @@ export const $UserStore = createStore<UserStore>(
 	{ name: "UserStore" }
 );
 
+export const $AuthorizationStore = createStore<boolean>(true, {
+	name: "authorizationStore",
+});
+
 export const loginFx = createEffect<LoginRequest, UserStore>("loginFx");
 
 export const registrationFx = createEffect<RegistrationRequest, void>(
@@ -35,3 +39,5 @@ export const registrationFx = createEffect<RegistrationRequest, void>(
 );
 
 export const logoutFx = createEffect<void, void>("logoutFx");
+
+export const authFx = createEffect<void, UserStore>("authFx");

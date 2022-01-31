@@ -1,0 +1,53 @@
+.profileInfo {
+	display: grid;
+
+	row-gap: 18px;
+
+	width: 440px;
+
+	background-color: white;
+
+	border-radius: 30px;
+}
+
+.photo {
+	width: 440px;
+	height: 260px;
+
+	border-radius: 30px;
+}
+
+.datalist {
+	display: grid;
+
+	row-gap: 8px;
+
+	padding: 0 37px;
+}
+
+.dataDescription {
+	padding: 5px 0;
+
+	border-bottom: 2px solid var(--main-color);
+
+	color: rgba(25, 40, 63, 0, 8);
+	font-size: 16px;
+	line-height: 1.5em;
+}
+
+.dataDescription__organization {
+	justify-self: end;
+
+	margin-right: -20px;
+	margin-bottom: 14px;
+
+	border: 0;
+
+	font-size: 14px;
+}
+
+.button {
+	margin-top: 30px;
+
+	justify-self: center;
+}

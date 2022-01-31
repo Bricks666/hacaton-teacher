@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import classNames from "classnames";
 import { ClassNameComponent } from "../../interfaces/common";
+import { Picture } from "../Picture";
 import image from "./image.svg";
 import imageAndText from "./image-and-text.svg";
 import text from "./text.svg";
@@ -30,8 +31,8 @@ export const Logo: FC<LogoComponent> = ({
 }) => {
 	return (
 		<figure className={classNames(LogoStyle.figure, className)}>
-			<img
-				className={classNames(LogoStyle.logo, logoClassName)}
+			<Picture
+				className={logoClassName}
 				src={logoImageMap[type]}
 				alt="Tabula"
 			/>
