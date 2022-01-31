@@ -3,11 +3,11 @@ import React from "react";
 
 import { Input } from "./Input";
 
-export default { title: "Input", component: Input, } as ComponentMeta<
+export default { title: "Input", component: Input } as ComponentMeta<
 	typeof Input
 >;
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const CommonInput = Template.bind({});
-CommonInput.args = { label: "Text" };
+CommonInput.args = { children: "Text" };

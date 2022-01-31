@@ -1,0 +1,1 @@
+export { ShowImage } from "./ShowImage";

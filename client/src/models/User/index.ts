@@ -1,3 +1,4 @@
+import { ChangeProfileInfoRequest } from "./../../interfaces/requests/ChangeProfileInfoRequest";
 import { createEffect, createStore } from "effector-logger";
 import { LoginRequest, RegistrationRequest } from "../../interfaces/requests";
 
@@ -41,3 +42,8 @@ export const registrationFx = createEffect<RegistrationRequest, void>(
 export const logoutFx = createEffect<void, void>("logoutFx");
 
 export const authFx = createEffect<void, UserStore>("authFx");
+
+export const changeProfileInfoFx = createEffect<
+	ChangeProfileInfoRequest,
+	ChangeProfileInfoRequest
+>("changeProfileInfoFx");

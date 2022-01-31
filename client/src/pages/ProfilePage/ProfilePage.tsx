@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Route, Routes } from "react-router-dom";
+import { ChangeProfileInfoForm } from "../../components/ChangeProfileInfoForm";
 import { ProfileInfo } from "../../components/ProfileInfo";
 import { ClassNameComponent } from "../../interfaces/common";
 import { ContentWrapper } from "../../ui/ContentWrapper/ContentWrapper";
@@ -13,8 +14,16 @@ export const ProfilePage: FC<ClassNameComponent> = ({ className }) => {
 			<ContentWrapper className={ProfilePageStyle.profilePage}>
 				<SectionHeader>Profile</SectionHeader>
 				<Routes>
-					<Route path="change" />
-					<Route path="*" element={<ProfileInfo />} />
+					<Route
+						path="change"
+						element={
+							<ChangeProfileInfoForm className={ProfilePageStyle.profileInfo} />
+						}
+					/>
+					<Route
+						path="*"
+						element={<ProfileInfo className={ProfilePageStyle.profileInfo} />}
+					/>
 				</Routes>
 			</ContentWrapper>
 		</main>

@@ -4,9 +4,11 @@ import {
 	$LoginStore,
 	$UserStore,
 	authFx,
+	changeProfileInfoFx,
 	loginFx,
 	logoutFx,
 	registrationFx,
+	UserStore,
 } from ".";
 import { mockServerResponse } from "../../mocks";
 import { mockUser } from "../../mocks/mockUser";
@@ -25,7 +27,29 @@ registrationFx.use(async () => await mockServerResponse(500, undefined));
 
 logoutFx.use(async () => await mockServerResponse(300, undefined));
 
+changeProfileInfoFx.use(
+	async (newInfo) => await mockServerResponse(300, newInfo)
+);
+
 sample({
 	clock: [loginFx.doneData, authFx.doneData],
+	target: $UserStore,
+});
+
+sample({
+	source: $UserStore,
+	clock: changeProfileInfoFx.doneData,
+	fn: (
+		{ photo: oldPhoto, ...currentProfileInfo },
+		{ photo, ...newUserInfo }
+	) => {
+		const newUserStore: Partial<UserStore> = {};
+
+		for (const key of Object.keys(currentProfileInfo)) {
+			newUserInfo[key] = newUserInfo[key] || currentProfileInfo[key];
+		}
+
+		return newUserStore as UserStore;
+	},
 	target: $UserStore,
 });

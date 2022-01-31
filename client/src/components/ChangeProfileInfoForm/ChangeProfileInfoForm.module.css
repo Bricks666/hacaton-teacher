@@ -1,4 +1,4 @@
-.profileInfo {
+.form {
 	display: grid;
 
 	row-gap: 18px;
@@ -13,13 +13,40 @@
 }
 
 .photo {
+	position: relative;
+
 	width: 440px;
 	height: 260px;
 
 	border-radius: 30px;
+
+	transition-property: filter;
+	transition-duration: 0.15s;
+	transition-timing-function: ease-in-out;
 }
 
-.datalist {
+.photo:hover,
+input:focus-visible .photo {
+	filter: brightness(0.5);
+}
+
+.photo:hover::before {
+	content: "Load";
+
+	position: absolute;
+
+	top: 50%;
+	left: 50%;
+
+	width: 50px;
+	height: 50px;
+
+	color: white;
+
+	transform: translate(50%);
+}
+
+.fieldBlock {
 	display: grid;
 
 	row-gap: 8px;

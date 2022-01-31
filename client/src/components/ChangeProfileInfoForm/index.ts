@@ -1,0 +1,1 @@
+export { ChangeProfileInfoForm } from "./ChangeProfileInfoForm";
