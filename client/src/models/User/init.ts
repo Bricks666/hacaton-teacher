@@ -16,6 +16,11 @@ import { mockUser } from "../../mocks/mockUser";
 $LoginStore.on([loginFx.done, authFx.done], () => true);
 $LoginStore.on(logoutFx.done, () => false);
 
+sample({
+	clock: [loginFx.doneData, authFx.doneData],
+	target: $UserStore,
+});
+
 $AuthorizationStore.on(authFx, () => true);
 $AuthorizationStore.on(authFx.done, () => false);
 
@@ -32,14 +37,9 @@ changeProfileInfoFx.use(
 );
 
 sample({
-	clock: [loginFx.doneData, authFx.doneData],
-	target: $UserStore,
-});
-
-sample({
 	source: $UserStore,
 	clock: changeProfileInfoFx.doneData,
-	fn: (
+	/* 	fn: (
 		{ photo: oldPhoto, ...currentProfileInfo },
 		{ photo, ...newUserInfo }
 	) => {
@@ -50,6 +50,6 @@ sample({
 		}
 
 		return newUserStore as UserStore;
-	},
+	}, */
 	target: $UserStore,
 });

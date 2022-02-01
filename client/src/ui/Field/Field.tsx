@@ -1,23 +1,27 @@
-import React, { forwardRef, HTMLInputTypeAttribute } from "react";
+import React, {
+	forwardRef,
+	HTMLInputTypeAttribute,
+	PropsWithChildren,
+} from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
 import { ClassNameComponent } from "../../interfaces/common";
 import { Input } from "../Input";
 
 interface FieldComponent extends ClassNameComponent, UseFormRegisterReturn {
-	label: string;
-	type?: HTMLInputTypeAttribute;
-	error?: FieldError;
-	inputClassName?: string;
-	errorClassName?: string;
+	readonly type?: HTMLInputTypeAttribute;
+	readonly error?: FieldError;
+	readonly inputClassName?: string;
+	readonly errorClassName?: string;
 }
 
-export const Field = forwardRef<HTMLInputElement, FieldComponent>(
-	({ error, className, inputClassName, errorClassName, ...input }, ref) => {
-		return (
-			<div className={className}>
-				{error && <p className={errorClassName}>{error.message}</p>}
-				<Input className={inputClassName} {...input} ref={ref} />
-			</div>
-		);
-	}
-);
+export const Field = forwardRef<
+	HTMLInputElement,
+	PropsWithChildren<FieldComponent>
+>(({ error, className, inputClassName, errorClassName, ...input }, ref) => {
+	return (
+		<div className={className}>
+			{error && <p className={errorClassName}>{error.message}</p>}
+			<Input className={inputClassName} {...input} ref={ref} />
+		</div>
+	);
+});

@@ -86,13 +86,12 @@ export const LoginForm: FC<ClassNameComponent> = ({ className }) => {
 			className={classNames(LoginFormStyle.form, className)}
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<Field {...register("login")} label="Логин" error={login} />
-			<Field
-				{...register("password")}
-				type="password"
-				label="Пароль"
-				error={password}
-			/>
+			<Field {...register("login")} error={login}>
+				Логин
+			</Field>
+			<Field {...register("password")} type="password" error={password}>
+				Пароль
+			</Field>
 			<Checkbox {...register("remember")} label="Запомнить меня" />
 			<Button
 				className={LoginFormStyle.button}

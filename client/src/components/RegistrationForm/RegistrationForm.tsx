@@ -100,57 +100,49 @@ export const RegistrationForm: FC<ClassNameComponent> = ({ className }) => {
 			className={classNames(RegistrationFormStyle.registrationForm, className)}
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<Field
-				{...register("userName")}
-				label="Имя"
-				error={userName}
-				disabled={isSubmitting}
-			/>
+			<Field {...register("userName")} error={userName} disabled={isSubmitting}>
+				Имя
+			</Field>
 			<Field
 				{...register("phoneNumber")}
 				type="tel"
-				label="Номер телефона"
 				error={phoneNumber}
 				disabled={isSubmitting}
-			/>
+			>
+				Номер телефона
+			</Field>
 			<Field
 				{...register("email")}
 				type="email"
-				label="Почта"
 				error={email}
 				disabled={isSubmitting}
-			/>
+			>
+				Почта
+			</Field>
 
 			<Field
 				{...register("educationOrg")}
-				label="Образовательная организация"
 				error={educationOrg}
 				disabled={isSubmitting}
-			/>
-			<Field
-				{...register("status")}
-				label="Статус"
-				error={status}
-				disabled={isSubmitting}
-			/>
-			<Field
-				{...register("group")}
-				label="Группа"
-				error={group}
-				disabled={isSubmitting}
-			/>
-			<Field
-				{...register("password")}
-				label="Пароль"
-				error={password}
-				disabled={isSubmitting}
-			/>
+			>
+				Образовательная организация
+			</Field>
+			<Field {...register("status")} error={status} disabled={isSubmitting}>
+				Статус
+			</Field>
+			<Field {...register("group")} error={group} disabled={isSubmitting}>
+				Группа
+			</Field>
+			<Field {...register("password")} error={password} disabled={isSubmitting}>
+				Пароль
+			</Field>
 			<Field
 				{...register("repeatPassword")}
-				label="Повторить пароль"
 				error={repeatPassword}
 				disabled={isSubmitting}
-			/>
+			>
+				Повторить пароль
+			</Field>
 			<Button
 				className={RegistrationFormStyle.button}
 				type="submit"
