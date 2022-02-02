@@ -1,7 +1,7 @@
 export type SimpleFunction<R> = () => R;
 
 export interface ClassNameComponent {
-	className?: string;
+	readonly className?: string;
 }
 
 export type SubmitHandler<Request, Response = void> = (

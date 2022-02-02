@@ -6,7 +6,7 @@ import PictureStyle from "./Picture.module.css";
 
 interface PictureComponent
 	extends ClassNameComponent,
-		Partial<ImgHTMLAttributes<HTMLImageElement>> {
+		Readonly<Partial<ImgHTMLAttributes<HTMLImageElement>>> {
 	readonly alt: string;
 	readonly src: string;
 }

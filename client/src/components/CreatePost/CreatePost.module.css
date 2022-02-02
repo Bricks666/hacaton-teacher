@@ -1,0 +1,21 @@
+.section {
+	display: grid;
+
+	grid-template-columns: min-content 1fr;
+	column-gap: 6px;
+
+	padding: 10px;
+}
+
+.photo {
+	width: 50px;
+	height: 50px;
+
+	border-radius: 50%;
+}
+
+.form {
+  margin-top: 20px;
+
+  height: 350px;
+}

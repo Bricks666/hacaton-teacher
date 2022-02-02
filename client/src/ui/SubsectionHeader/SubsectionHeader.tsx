@@ -10,7 +10,7 @@ export const SubsectionHeader: FC<ClassNameComponent> = ({
 }) => {
 	return (
 		<h3
-			className={classNames(SubsectionHeaderStyle.SubsectionHeader, className)}
+			className={classNames(SubsectionHeaderStyle.subsectionHeader, className)}
 		>
 			{children}
 		</h3>

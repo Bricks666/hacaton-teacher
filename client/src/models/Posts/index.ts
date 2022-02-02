@@ -1,4 +1,5 @@
-import { createEffect, createStore } from "effector-logger";
+import { createEffect, createEvent, createStore } from "effector-logger";
+import { AddPostRequest } from "../../interfaces/requests";
 
 export interface Post {
 	readonly id: number;
@@ -11,6 +12,11 @@ export interface Post {
 export const $Posts = createStore<Post[]>([], { name: "Posts" });
 
 export const loadPostsFx = createEffect<void, Post[]>("loadPostsFx");
+
+export const addPostFx = createEffect<AddPostRequest, AddPostRequest>(
+	"addPostFx"
+);
+export const addPost = createEvent<Post>("addPostsEvent");
 
 export const $LoadingPosts = createStore<boolean>(false, {
 	name: "loadingPostsStore",

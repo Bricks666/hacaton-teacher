@@ -6,23 +6,30 @@ import { ClassNameComponent } from "../../interfaces/common";
 import ButtonStyle from "./Button.module.css";
 
 type ButtonType = "submit" | "reset" | "button" | "link";
+type Color = "orange" | "yellow";
 
 interface ButtonComponent extends ClassNameComponent {
 	readonly onClick?: MouseEventHandler<HTMLButtonElement>;
 	readonly type?: ButtonType;
 	readonly disabled?: boolean;
 	readonly to?: string;
+	readonly color?: Color;
 }
 
 export const Button: FC<ButtonComponent> = ({
 	className,
 	onClick,
-	type = "button",
 	disabled,
 	children,
 	to,
+	type = "button",
+	color = "orange",
 }) => {
-	const classes = classNames(ButtonStyle.button, className);
+	const classes = classNames(
+		ButtonStyle.button,
+		ButtonStyle[`button--${color}`],
+		className
+	);
 
 	if (type === "link") {
 		if (!to) {

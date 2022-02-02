@@ -1,0 +1,14 @@
+.crossButton {
+	padding: 0;
+
+	border: 0;
+	border-radius: 0;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url("./Vector.svg");
+	background-color: transparent;
+
+	cursor: pointer;
+}

@@ -1,3 +1,7 @@
 .loading {
 	height: 100vh;
 }
+
+.main {
+	padding-bottom: 150px;
+}
