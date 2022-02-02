@@ -1,0 +1,41 @@
+.card {
+	display: grid;
+
+	grid-template-columns: min-content 1fr;
+	column-gap: 21px;
+
+	padding: 18px 82px 158px 28px;
+
+	background-color: white;
+
+	border-radius: 30px;
+	border: 1px solid var(--main-color);
+}
+
+.photoLink {
+	grid-row: span 2;
+
+	width: 55px;
+	height: 55px;
+}
+
+.photo {
+	border-radius: 50%;
+}
+.nameLink {
+	color: var(--second-color);
+	text-decoration: none;
+}
+
+.name {
+	grid-column: 2;
+
+	font-size: 20px;
+	line-height: 1.2em;
+	letter-spacing: -0.011em;
+	font-weight: 700;
+}
+
+.content {
+	grid-column: 2;
+}

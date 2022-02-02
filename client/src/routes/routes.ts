@@ -1,4 +1,5 @@
 import { ComponentType } from "react";
+import { BlogPage } from "../pages/BlogPage";
 import { LoginPage } from "../pages/LoginPage";
 import { ProfilePage } from "../pages/ProfilePage";
 import { RegistrationPage } from "../pages/RegistrationPage";
@@ -22,5 +23,9 @@ export const routes: Route[] = [
 		Component: ProfilePage,
 		path: "/profile/*",
 		isOnlyAuth: true,
+	},
+	{
+		Component: BlogPage,
+		path: "/blog/*",
 	},
 ];
