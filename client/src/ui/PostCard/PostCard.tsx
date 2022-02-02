@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { Link } from "react-router-dom";
 import { ClassNameComponent } from "../../interfaces/common";
+import { Link } from "../Link";
 import { Paragraph } from "../Paragraph";
 import { Picture } from "../Picture";
 
@@ -25,7 +25,7 @@ export const PostCard: FC<PostCardComponent> = ({
 	const link = `/profile/${authorId}`;
 	return (
 		<article className={classNames(PostCardStyle.card, className)}>
-			<Link className={PostCardStyle.photoLink} to={link}>
+			<Link className={PostCardStyle.photoLink} to={link} type="react">
 				<Picture
 					className={PostCardStyle.photo}
 					src={authorPhoto}
@@ -34,7 +34,7 @@ export const PostCard: FC<PostCardComponent> = ({
 			</Link>
 
 			<p className={PostCardStyle.name}>
-				<Link className={PostCardStyle.nameLink} to={link}>
+				<Link className={PostCardStyle.nameLink} to={link} type="react">
 					{authorName}
 				</Link>
 			</p>

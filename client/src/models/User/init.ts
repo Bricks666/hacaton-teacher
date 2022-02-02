@@ -8,10 +8,10 @@ import {
 	loginFx,
 	logoutFx,
 	registrationFx,
-	UserStore,
 } from ".";
 import { mockServerResponse } from "../../mocks";
 import { mockUser } from "../../mocks/mockUser";
+import { combineUserInfo } from "../../utils";
 
 $LoginStore.on([loginFx.done, authFx.done], () => true);
 $LoginStore.on(logoutFx.done, () => false);
@@ -39,17 +39,6 @@ changeProfileInfoFx.use(
 sample({
 	source: $UserStore,
 	clock: changeProfileInfoFx.doneData,
-	/* 	fn: (
-		{ photo: oldPhoto, ...currentProfileInfo },
-		{ photo, ...newUserInfo }
-	) => {
-		const newUserStore: Partial<UserStore> = {};
-
-		for (const key of Object.keys(currentProfileInfo)) {
-			newUserInfo[key] = newUserInfo[key] || currentProfileInfo[key];
-		}
-
-		return newUserStore as UserStore;
-	}, */
+	fn: combineUserInfo,
 	target: $UserStore,
 });

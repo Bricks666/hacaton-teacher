@@ -15,7 +15,6 @@ export const App: FC = () => {
 	useEffect(() => {
 		authFx();
 	}, []);
-
 	return (
 		<BrowserRouter>
 			<LoadingWrapper className={AppStyle.loading} isLoading={isLoading}>
@@ -31,10 +30,10 @@ export const App: FC = () => {
 							element={
 								isOnlyAuth ? (
 									<OnlyAuth>
-										<Component />
+										<Component className={AppStyle.main} />
 									</OnlyAuth>
 								) : (
-									<Component />
+									<Component className={AppStyle.main} />
 								)
 							}
 							key={path}

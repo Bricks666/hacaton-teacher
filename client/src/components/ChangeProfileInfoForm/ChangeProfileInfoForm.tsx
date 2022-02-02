@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, { FC, useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useUserInfo } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
 import { ChangeProfileInfoRequest } from "../../interfaces/requests";
@@ -23,14 +24,15 @@ export const ChangeProfileInfoForm: FC<ClassNameComponent> = ({
 		useForm<ChangeProfileInfoRequest>({
 			defaultValues: { ...initialValue, photo: null },
 		});
-
+	const navigate = useNavigate();
 	const { isSubmitting, isDirty } = formState;
 	const disableButton = isSubmitting || !isDirty;
 	const newPhoto = watch("photo");
 
-	const onSubmit = useCallback((values: ChangeProfileInfoRequest) => {
-		changeProfileInfoFx(values);
-	}, []);
+	const onSubmit = useCallback(async (values: ChangeProfileInfoRequest) => {
+		await changeProfileInfoFx(values);
+		navigate(-1);
+	}, [navigate]);
 
 	return (
 		<form

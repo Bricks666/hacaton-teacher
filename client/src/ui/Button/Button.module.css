@@ -2,21 +2,21 @@
 	display: block;
 
 	min-width: 108px;
-  width: max-content;
+	width: max-content;
+	height: min-content;
 
 	padding: 8px 33px;
 
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1.5em;
-	letter-spacing: -0.011em;;
+	letter-spacing: -0.011em;
 	font-weight: 500;
-	color: white;
 	font-family: inherit;
+
+	cursor: pointer;
 
 	border-radius: 10px;
 	border: 0;
-
-	background-color: var(--main-color);
 }
 
 .button:disabled {
@@ -30,4 +30,14 @@
 
 .button__link {
 	text-decoration: none;
+}
+
+.button--orange {
+	background-color: var(--main-color);
+	color: white;
+}
+
+.button--yellow {
+	background-color: var(--third-color);
+	color: black;
 }
