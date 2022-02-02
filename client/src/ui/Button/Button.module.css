@@ -21,6 +21,7 @@
 
 .button:disabled {
 	background-color: var(--main-color-lighter);
+  cursor: auto;
 }
 
 .button:focus-visible {

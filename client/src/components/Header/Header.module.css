@@ -18,3 +18,11 @@
 	margin-left: auto;
 	margin-right: 44px;
 }
+
+.search {
+	margin-left: 92px;
+
+	transition-property: margin;
+	transition-duration: 0.25s;
+	transition-timing-function: ease-in-out;
+}
