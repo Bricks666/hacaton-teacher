@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { FC, ImgHTMLAttributes } from "react";
+import React, { FC, ImgHTMLAttributes, memo } from "react";
 import { ClassNameComponent } from "../../interfaces/common";
 
 import PictureStyle from "./Picture.module.css";
@@ -11,18 +11,15 @@ interface PictureComponent
 	readonly src: string;
 }
 
-export const Picture: FC<PictureComponent> = ({
-	className,
-	src,
-	alt,
-	...image
-}) => {
-	return (
-		<img
-			className={classNames(PictureStyle.picture, className)}
-			src={src}
-			alt={alt}
-			{...image}
-		/>
-	);
-};
+export const Picture: FC<PictureComponent> = memo(
+	({ className, src, alt, ...image }) => {
+		return (
+			<img
+				className={classNames(PictureStyle.picture, className)}
+				src={src}
+				alt={alt}
+				{...image}
+			/>
+		);
+	}
+);

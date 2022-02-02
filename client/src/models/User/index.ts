@@ -29,7 +29,7 @@ export const $UserStore = createStore<UserStore>(
 	{ name: "UserStore" }
 );
 
-export const $AuthorizationStore = createStore<boolean>(true, {
+export const $AuthorizationStore = createStore<boolean>(false, {
 	name: "authorizationStore",
 });
 

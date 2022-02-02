@@ -14,17 +14,18 @@ const initialValues: AddPostRequest = {
 };
 
 export const CreatePostFrom: FC<ClassNameComponent> = ({ className }) => {
-	const { register, handleSubmit, reset } = useForm<AddPostRequest>({
+	const { register, handleSubmit, reset, formState } = useForm<AddPostRequest>({
 		defaultValues: initialValues,
 	});
 	const onSubmit = useCallback(
 		async (value: AddPostRequest) => {
-      debugger
 			await addPostFx(value);
 			reset();
 		},
 		[reset]
 	);
+
+	const { isDirty, isSubmitting } = formState;
 
 	return (
 		<form
@@ -35,8 +36,15 @@ export const CreatePostFrom: FC<ClassNameComponent> = ({ className }) => {
 				className={CreatePostStyle.textarea}
 				{...register("post")}
 				placeholder="What's happening?"
+				disabled={isSubmitting}
 			/>
-			<Button className={CreatePostStyle.button} type="submit">Publish</Button>
+			<Button
+				className={CreatePostStyle.button}
+				type="submit"
+				disabled={!isDirty || isSubmitting}
+			>
+				Publish
+			</Button>
 		</form>
 	);
 };

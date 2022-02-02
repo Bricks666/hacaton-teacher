@@ -2,7 +2,8 @@ import { useCallback, useEffect, MouseEvent } from "react";
 
 export const useClickOutside = (
 	reference: HTMLElement | null,
-	onClickOutside: (evt?: MouseEvent) => unknown
+	onClickOutside: (evt?: MouseEvent) => unknown,
+	...conditions: boolean[]
 ) => {
 	const onClick = useCallback(
 		(evt: globalThis.MouseEvent) => {
@@ -10,12 +11,13 @@ export const useClickOutside = (
 
 			if (
 				target !== reference &&
-				!reference?.innerHTML.includes(target.innerHTML)
+				!reference?.innerHTML.includes(target.innerHTML) &&
+				!conditions?.some((condition) => !condition)
 			) {
 				onClickOutside(evt as unknown as MouseEvent);
 			}
 		},
-		[onClickOutside, reference]
+		[onClickOutside, reference, conditions]
 	);
 	useEffect(() => {
 		document.addEventListener("click", onClick);
