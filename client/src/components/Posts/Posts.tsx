@@ -5,7 +5,7 @@ import { ClassNameComponent } from "../../interfaces/common";
 import { List } from "../../ui/List";
 import { PostCard } from "../../ui/PostCard";
 import { useLoadingPosts } from "../../hooks/useLoadingPosts";
-import { LoadingWrapper } from "../../ui/LoadingWrapper";
+import { ContentLoading } from "../../ui/ContentLoading";
 
 import PostsStyle from "./Posts.module.css";
 
@@ -14,7 +14,7 @@ export const Posts: FC<ClassNameComponent> = ({ className }) => {
 	const isLoading = useLoadingPosts();
 
 	return (
-		<LoadingWrapper isLoading={isLoading}>
+		<ContentLoading isLoading={isLoading}>
 			<List
 				className={classNames(PostsStyle.list, className)}
 				items={posts}
@@ -22,6 +22,6 @@ export const Posts: FC<ClassNameComponent> = ({ className }) => {
 				indexedBy={"id"}
 				type="unnumbered"
 			/>
-		</LoadingWrapper>
+		</ContentLoading>
 	);
 };

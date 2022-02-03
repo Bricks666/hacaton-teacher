@@ -4,7 +4,7 @@ import { Header } from "./components/Header";
 import { OnlyAuth } from "./components/OnlyAuth";
 import { useIsAuthorization } from "./hooks";
 import { routes } from "./routes";
-import { LoadingWrapper } from "./ui/LoadingWrapper";
+import { PageLoading } from "./ui/PageLoading";
 import { authFx } from "./models/User";
 
 import AppStyle from "./App.module.css";
@@ -15,9 +15,10 @@ export const App: FC = () => {
 	useEffect(() => {
 		authFx();
 	}, []);
+
 	return (
 		<BrowserRouter>
-			<LoadingWrapper className={AppStyle.loading} isLoading={isLoading}>
+			<PageLoading className={AppStyle.loading} isLoading={isLoading}>
 				<Routes>
 					<Route path="login/*" />
 					<Route path="registration/*" />
@@ -40,7 +41,7 @@ export const App: FC = () => {
 						/>
 					))}
 				</Routes>
-			</LoadingWrapper>
+			</PageLoading>
 		</BrowserRouter>
 	);
 };

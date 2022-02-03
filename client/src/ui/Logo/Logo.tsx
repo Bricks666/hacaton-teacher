@@ -25,7 +25,6 @@ const logoImageMap: Readonly<Record<LogoType, string>> = {
 export const Logo: FC<LogoComponent> = ({
 	className,
 	type,
-	children,
 	logoClassName,
 	captionClassName,
 }) => {
@@ -36,9 +35,11 @@ export const Logo: FC<LogoComponent> = ({
 				src={logoImageMap[type]}
 				alt="Tabula"
 			/>
-			<figcaption className={classNames(LogoStyle.caption, captionClassName)}>
-				{children}
-			</figcaption>
+			{type === "image and text" && (
+				<figcaption className={classNames(LogoStyle.caption, captionClassName)}>
+					The limits of my language are the limits of my world
+				</figcaption>
+			)}
 		</figure>
 	);
 };

@@ -13,9 +13,7 @@ export const LoginPage: FC<ClassNameComponent> = ({ className }) => {
 	return (
 		<main className={classNames(className)}>
 			<ContentWrapper className={LoginPageStyle.loginPage}>
-				<Logo className={LoginPageStyle.logo} type="image and text">
-					The limits of my language are the limits of my world
-				</Logo>
+				<Logo className={LoginPageStyle.logo} type="image and text" />
 				<LoginForm className={LoginPageStyle.loginForm} />
 				<Paragraph className={LoginPageStyle.link}>
 					Don&apos;t have account?{" "}
