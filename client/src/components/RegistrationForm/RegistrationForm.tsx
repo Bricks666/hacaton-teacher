@@ -77,7 +77,7 @@ export const RegistrationForm: FC<ClassNameComponent> = ({ className }) => {
 				reset();
 				navigate("/login", { replace: true, state });
 			} catch (e) {
-				console.log(e);
+				e;
 			}
 		},
 		[navigate, reset, state]

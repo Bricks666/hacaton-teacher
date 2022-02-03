@@ -75,7 +75,7 @@ export const LoginForm: FC<ClassNameComponent> = ({ className }) => {
 				const to = state ? createFullPath(state) : "/";
 				navigate(to, { replace: true });
 			} catch (e) {
-				console.log(e);
+				e
 			}
 		},
 		[reset, state, navigate]
