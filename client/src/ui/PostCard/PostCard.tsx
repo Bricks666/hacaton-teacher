@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React, { FC } from "react";
 import { ClassNameComponent } from "../../interfaces/common";
 import { Link } from "../Link";
-import { Paragraph } from "../Paragraph";
+import { ParagraphWithLinks } from "../ParagraphWithLinks";
 import { Picture } from "../Picture";
 
 import PostCardStyle from "./PostCard.module.css";
@@ -38,7 +38,9 @@ export const PostCard: FC<PostCardComponent> = ({
 					{authorName}
 				</Link>
 			</p>
-			<Paragraph className={PostCardStyle.content}>{content}</Paragraph>
+			<ParagraphWithLinks className={PostCardStyle.content}>
+				{content}
+			</ParagraphWithLinks>
 		</article>
 	);
 };
