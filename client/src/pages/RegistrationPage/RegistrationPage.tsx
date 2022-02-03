@@ -13,9 +13,7 @@ export const RegistrationPage: FC<ClassNameComponent> = ({ className }) => {
 	return (
 		<main className={classNames(className)}>
 			<ContentWrapper className={RegistrationPageStyle.registrationPage}>
-				<Logo className={RegistrationPageStyle.logo} type="image and text">
-					The limits of my language are the limits of my world
-				</Logo>
+				<Logo className={RegistrationPageStyle.logo} type="image and text" />
 				<RegistrationForm className={RegistrationPageStyle.registrationForm} />
 				<Paragraph className={RegistrationPageStyle.link}>
 					Already got an account? <SaveLink to="/login">Log in</SaveLink>

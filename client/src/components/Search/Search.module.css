@@ -48,13 +48,14 @@
 	background-image: url("./search.svg");
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: 80;
+	background-size: 50%;
 
 	cursor: pointer;
 }
 
 .button:hover {
 	border: 2px solid var(--third-color-darker);
+	background-size: 60%;
 }
 
 .search__show {

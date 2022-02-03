@@ -9,7 +9,7 @@ interface ParagraphWithLinksComponent extends ClassNameComponent {
 }
 
 const parseLink =
-	/(\[[\w\s]{1,}\]\((?:https?:\/\/|\bwww\.)[\w\d\-/:.]{1,}\)|(?:https?:\/\/|\bwww\.)[\w\d\-/:.]{1,})|(\n+|(?:(?!(\[[\w\s]{1,}\]\((?:https?:\/\/|\bwww\.)[\w\d\-/:.]{1,}\)|(?:https?:\/\/|\bwww\.)[\w\d\-/:.]{1,})).)+)/gim;
+	/(\[[\w\s]{1,}\]\((?:https?:\/\/|\bwww\.)[\w\d\-/:.=?&]{1,}\)|(?:https?:\/\/|\bwww\.)[\w\d\-/:.=?&]{1,})|(\n+|(?:(?!(\[[\w\s]{1,}\]\((?:https?:\/\/|\bwww\.)[\w\d\-/:.=?&]{1,}\)|(?:https?:\/\/|\bwww\.)[\w\d\-/:.=?&]{1,})).)+)/gim;
 
 export const ParagraphWithLinks: FC<ParagraphWithLinksComponent> = ({
 	children,
