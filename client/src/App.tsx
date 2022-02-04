@@ -6,6 +6,7 @@ import { useIsAuthorization } from "./hooks";
 import { routes } from "./routes";
 import { PageLoading } from "./ui/PageLoading";
 import { authFx } from "./models/User";
+import { Popups } from "./components/Popups";
 
 import AppStyle from "./App.module.css";
 
@@ -42,6 +43,7 @@ export const App: FC = () => {
 					))}
 					<Route path="*" element={<Navigate to="/blog" replace={true} />} />
 				</Routes>
+				<Popups />
 			</PageLoading>
 		</BrowserRouter>
 	);

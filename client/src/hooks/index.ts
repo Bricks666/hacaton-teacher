@@ -4,3 +4,8 @@ export { useUserInfo } from "./useUserInfo";
 export { useIsAuthorization } from "./useIsAuthorization";
 export { useClickOutside } from "./useClickOutside";
 export { usePosts } from "./usePosts";
+export { useClosePopup } from "./useClosePopup";
+export { usePopups } from "./usePopups";
+export { useGetParam } from "./useGetParam";
+export { usePrepareLink } from "./usePrepareLink";
+export { useSelectedPost } from "./useSelectedPost";

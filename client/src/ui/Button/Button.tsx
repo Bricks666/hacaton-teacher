@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { FC, MouseEventHandler } from "react";
-import { Link } from "react-router-dom";
+import { Link, Path } from "react-router-dom";
 import { ClassNameComponent } from "../../interfaces/common";
 
 import ButtonStyle from "./Button.module.css";
@@ -12,7 +12,7 @@ interface ButtonComponent extends ClassNameComponent {
 	readonly onClick?: MouseEventHandler<HTMLButtonElement>;
 	readonly type?: ButtonType;
 	readonly disabled?: boolean;
-	readonly to?: string;
+	readonly to?: string | Partial<Path>;
 	readonly color?: Color;
 }
 

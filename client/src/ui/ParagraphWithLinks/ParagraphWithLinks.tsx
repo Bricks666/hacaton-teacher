@@ -21,7 +21,11 @@ export const ParagraphWithLinks: FC<ParagraphWithLinksComponent> = ({
 			const parsedLink = parseParagraphLink(link);
 
 			parsedText.push(
-				<Link to={parsedLink.href} type={parsedLink.refType}>
+				<Link
+					to={parsedLink.href}
+					type={parsedLink.refType}
+					key={parsedLink.href}
+				>
 					{parsedLink.label}
 				</Link>
 			);
