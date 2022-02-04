@@ -11,7 +11,12 @@ export const CreatePost: FC<ClassNameComponent> = ({ className }) => {
 	const { photo, userName } = useUserInfo();
 	return (
 		<section className={classNames(CreatePostStyle.section, className)}>
-			<Picture className={CreatePostStyle.photo} src={photo} alt={userName} />
+			<Picture
+				className={CreatePostStyle.photo}
+				src={photo}
+				alt={userName}
+				title={userName}
+			/>
 			<CreatePostFrom className={CreatePostStyle.form} />
 		</section>
 	);

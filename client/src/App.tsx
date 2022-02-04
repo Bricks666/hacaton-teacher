@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header";
 import { OnlyAuth } from "./components/OnlyAuth";
 import { useIsAuthorization } from "./hooks";
@@ -40,6 +40,7 @@ export const App: FC = () => {
 							key={path}
 						/>
 					))}
+					<Route path="*" element={<Navigate to="/blog" replace={true} />} />
 				</Routes>
 			</PageLoading>
 		</BrowserRouter>

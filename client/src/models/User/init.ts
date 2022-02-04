@@ -26,7 +26,7 @@ $AuthorizationStore.on(authFx.done, () => false);
 
 loginFx.use(async () => await mockServerResponse(500, mockUser));
 
-authFx.use(async () => await mockServerResponse(30000, mockUser));
+authFx.use(async () => await mockServerResponse(3000, mockUser));
 
 registrationFx.use(async () => await mockServerResponse(500, undefined));
 

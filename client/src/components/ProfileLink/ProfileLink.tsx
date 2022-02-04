@@ -7,6 +7,7 @@ import { ClassNameComponent } from "../../interfaces/common";
 import { Picture } from "../../ui/Picture";
 import { ProfileLinkMenu } from "../ProfileLinkMenu";
 import { Paragraph } from "../../ui/Paragraph";
+import { BlockWrapper } from "../../ui/BlockWrapper";
 
 import ProfileLinkStyle from "./ProfileLink.module.css";
 
@@ -25,21 +26,23 @@ export const ProfileLink: FC<ClassNameComponent> = ({ className }) => {
 	);
 	return (
 		<div className={classNames(className)}>
-			<div
-				className={ProfileLinkStyle.info}
-				ref={parentRef}
-				onClick={toggleShow}
-				role="button"
-				aria-haspopup={true}
-				tabIndex={0}
-			>
-				<Picture
-					className={ProfileLinkStyle.photo}
-					src={photo}
-					alt={userName}
-				/>
-				<Paragraph className={ProfileLinkStyle.name}>{userName}</Paragraph>
-			</div>
+			<BlockWrapper>
+				<div
+					className={ProfileLinkStyle.info}
+					ref={parentRef}
+					onClick={toggleShow}
+					role="button"
+					aria-haspopup={true}
+					tabIndex={0}
+				>
+					<Picture
+						className={ProfileLinkStyle.photo}
+						src={photo}
+						alt={userName}
+					/>
+					<Paragraph className={ProfileLinkStyle.name}>{userName}</Paragraph>
+				</div>
+			</BlockWrapper>
 			{isShow && (
 				<Popover
 					reference={parentRef.current}
