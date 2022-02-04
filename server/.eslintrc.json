@@ -1,0 +1,27 @@
+{
+	"env": {
+		"node": true,
+		"commonjs": true,
+		"es2021": true
+	},
+	"extends": ["eslint:recommended", "plugin:sonarjs/recommended"],
+	"parserOptions": {
+		"ecmaVersion": "latest"
+	},
+	"root": true,
+	"plugins": ["sonarjs"],
+	"rules": {
+		/* STANDARD */
+		"indent": ["warn", "tab", { "SwitchCase": 1 }],
+		"no-mixed-spaces-and-tabs": "warn",
+		"quotes": ["error", "double"],
+		"semi": ["warn", "always"],
+		"no-alert": "error",
+		"no-debugger": "warn",
+		"no-constructor-return": "error",
+		"no-duplicate-imports": "warn",
+		"no-promise-executor-return": "error",
+		"no-self-compare": "error",
+		"no-console": "warn"
+	}
+}
