@@ -19,9 +19,9 @@ export const BlogPage: FC<ClassNameComponent> = ({ className }) => {
 				<SectionHeader className={BlogPageStyle.header}>Blog</SectionHeader>
 				<Button
 					className={BlogPageStyle.button}
-					type="link"
+					buttonType="link"
 					to={createPostLink}
-					color="yellow"
+					color="secondary"
 				>
 					Add Post
 				</Button>

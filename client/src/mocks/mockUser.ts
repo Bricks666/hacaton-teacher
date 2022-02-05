@@ -1,6 +1,6 @@
-import { UserStore } from "../models/User";
+import { User } from "../interfaces/models";
 
-export const mockUser: UserStore = {
+export const mockUser: User = {
 	id: 1,
 	email: "example@gmail.com",
 	phone: "+7956894581",

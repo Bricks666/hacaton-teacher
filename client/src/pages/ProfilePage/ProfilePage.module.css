@@ -1,7 +1,18 @@
 .profilePage {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: min-content repeat(2, 450px);
+	column-gap: 64px;
+
 	padding: 0 338px;
+	padding-right: 172px;
+}
+.header {
+	grid-column: span 2;
 }
 
 .profileInfo {
+	grid-row: span 2;
+
 	margin-bottom: 142px;
 }

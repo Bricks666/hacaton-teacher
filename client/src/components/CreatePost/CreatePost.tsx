@@ -15,6 +15,7 @@ interface CreatePostComponent extends ClassNameComponent {
 export const CreatePost: FC<CreatePostComponent> = ({ className, isOpen }) => {
 	const { photo, userName } = useUserInfo();
 	const onClose = useClosePopup();
+
 	return (
 		<MainPopup
 			contentClassName={classNames(CreatePostStyle.section, className)}

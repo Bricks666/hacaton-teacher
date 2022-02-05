@@ -29,10 +29,13 @@ export const ChangeProfileInfoForm: FC<ClassNameComponent> = ({
 	const disableButton = isSubmitting || !isDirty;
 	const newPhoto = watch("photo");
 
-	const onSubmit = useCallback(async (values: ChangeProfileInfoRequest) => {
-		await changeProfileInfoFx(values);
-		navigate(-1);
-	}, [navigate]);
+	const onSubmit = useCallback(
+		async (values: ChangeProfileInfoRequest) => {
+			await changeProfileInfoFx(values);
+			navigate(-1);
+		},
+		[navigate]
+	);
 
 	return (
 		<form
@@ -62,7 +65,7 @@ export const ChangeProfileInfoForm: FC<ClassNameComponent> = ({
 
 			<Button
 				className={ChangeProfileInfoFormStyle.button}
-				type="submit"
+				buttonType="submit"
 				disabled={disableButton}
 			>
 				Save edit

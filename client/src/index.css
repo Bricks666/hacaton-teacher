@@ -21,9 +21,11 @@ body {
 	--main-color-darker: #ad7248;
 
 	--second-color: #19283f;
+	--second-color-darker: #0c1625;
 	--second-color-lighter: #3484ff;
 
 	--third-color: #dff296;
+	--third-color-lighter: #e5f1b3;
 	--third-color-darker: #a2af6c;
 }
 

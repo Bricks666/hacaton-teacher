@@ -95,7 +95,7 @@ export const LoginForm: FC<ClassNameComponent> = ({ className }) => {
 			<Checkbox {...register("remember")} label="Запомнить меня" />
 			<Button
 				className={LoginFormStyle.button}
-				type="submit"
+				buttonType="submit"
 				disabled={isSubmitting || !isDirty}
 			>
 				Login

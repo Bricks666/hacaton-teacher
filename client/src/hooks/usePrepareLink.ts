@@ -7,7 +7,7 @@ interface UsePrepareLinkResponse {
 }
 
 interface UserPrepareLinkParams {
-	readonly query?: Record<string, string>;
+	readonly query?: Record<string, string | number>;
 	readonly savePrevQuery?: boolean;
 }
 /* TODO: Можно сделать так, чтобы можно было открыть несколько popup'ов, если понадобится */
@@ -22,7 +22,9 @@ export const usePrepareLink = ({
 		? new URLSearchParams(location.search)
 		: new URLSearchParams();
 
-	Object.entries(query).forEach(([key, value]) => newQuery.set(key, value));
+	Object.entries(query).forEach(([key, value]) =>
+		newQuery.set(key, value.toString())
+	);
 	return {
 		hash: location.hash,
 		pathname: location.pathname,

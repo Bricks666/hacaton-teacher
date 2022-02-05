@@ -145,7 +145,7 @@ export const RegistrationForm: FC<ClassNameComponent> = ({ className }) => {
 			</Field>
 			<Button
 				className={RegistrationFormStyle.button}
-				type="submit"
+				buttonType="submit"
 				disabled={!isDirty || isSubmitting}
 			>
 				Зарегистрироваться

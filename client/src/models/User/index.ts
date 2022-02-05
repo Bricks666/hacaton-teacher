@@ -1,22 +1,13 @@
 import { ChangeProfileInfoRequest } from "./../../interfaces/requests/ChangeProfileInfoRequest";
 import { createEffect, createStore } from "effector-logger";
 import { LoginRequest, RegistrationRequest } from "../../interfaces/requests";
-
-export interface UserStore {
-	readonly id: number;
-	readonly userName: string;
-	readonly email: string;
-	readonly phone: string;
-	readonly status: string;
-	readonly photo: string;
-	readonly organization: string;
-}
+import { User } from "../../interfaces/models";
 
 export const $LoginStore = createStore<boolean>(true, {
 	name: "LoginStore",
 });
 
-export const $UserStore = createStore<UserStore>(
+export const $UserStore = createStore<User>(
 	{
 		id: 0,
 		userName: "",
@@ -29,11 +20,11 @@ export const $UserStore = createStore<UserStore>(
 	{ name: "UserStore" }
 );
 
-export const $AuthorizationStore = createStore<boolean>(false, {
+export const $AuthorizationStore = createStore<boolean>(true, {
 	name: "authorizationStore",
 });
 
-export const loginFx = createEffect<LoginRequest, UserStore>("loginFx");
+export const loginFx = createEffect<LoginRequest, User>("loginFx");
 
 export const registrationFx = createEffect<RegistrationRequest, void>(
 	"registrationFx"
@@ -41,7 +32,7 @@ export const registrationFx = createEffect<RegistrationRequest, void>(
 
 export const logoutFx = createEffect<void, void>("logoutFx");
 
-export const authFx = createEffect<void, UserStore>("authFx");
+export const authFx = createEffect<void, User>("authFx");
 
 export const changeProfileInfoFx = createEffect<
 	ChangeProfileInfoRequest,

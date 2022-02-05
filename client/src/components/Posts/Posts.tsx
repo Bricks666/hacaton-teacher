@@ -6,7 +6,6 @@ import { List } from "../../ui/List";
 import { useLoadingPosts } from "../../hooks/useLoadingPosts";
 import { ContentLoading } from "../../ui/ContentLoading";
 import { PostCard } from "../PostCard";
-import { EditablePost } from "../EditablePost";
 
 import PostsStyle from "./Posts.module.css";
 
@@ -19,7 +18,7 @@ export const Posts: FC<ClassNameComponent> = ({ className }) => {
 			<List
 				className={classNames(PostsStyle.list, className)}
 				items={posts}
-				Card={EditablePost}
+				Card={PostCard}
 				indexedBy={"id"}
 				type="unnumbered"
 			/>

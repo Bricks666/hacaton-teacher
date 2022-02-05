@@ -1,4 +1,8 @@
 import React, { FC, useCallback, useState } from "react";
+import { getParams, popups } from "../../config";
+import { usePrepareLink } from "../../hooks";
+import { Button } from "../../ui/Button";
+import { Link } from "../../ui/Link";
 import { Popover } from "../../ui/Popover";
 import { PostHeader } from "../../ui/PostHeader";
 
@@ -14,6 +18,12 @@ export const PostHeaderWithEditing: FC<PostHeaderWithEditingComponent> = ({
 }) => {
 	const [parentRef, setParentRef] = useState<HTMLButtonElement | null>(null);
 	const [showPopover, setShowPopover] = useState(false);
+	const editFormLink = usePrepareLink({
+		query: {
+			[getParams.popups]: popups.post,
+			[getParams.post]: id,
+		},
+	});
 
 	const onToggleShowPopover = useCallback(
 		() => setShowPopover(!showPopover),
@@ -28,7 +38,12 @@ export const PostHeaderWithEditing: FC<PostHeaderWithEditingComponent> = ({
 				ref={setParentRef}
 			/>
 			{showPopover && (
-				<Popover reference={parentRef} onClose={onToggleShowPopover}></Popover>
+				<Popover reference={parentRef} onClose={onToggleShowPopover}>
+					<Button to={editFormLink} buttonType="link" color="monotype">
+						Edit
+					</Button>
+					<Button color="monotype">Delete</Button>
+				</Popover>
 			)}
 		</PostHeader>
 	);

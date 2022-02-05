@@ -12,6 +12,7 @@ interface ListComponentProps<T extends AnyObject> extends ClassNameComponent {
 	readonly type: ListType;
 	readonly indexedBy: keyof T;
 	readonly itemClassName?: string;
+	readonly count?: number;
 }
 
 export const List = <T,>({
@@ -21,8 +22,9 @@ export const List = <T,>({
 	Card,
 	indexedBy,
 	itemClassName,
+	count = items.length,
 }: ListComponentProps<T>) => {
-	const elements = items.map((item) => (
+	const elements = items.slice(0, count).map((item) => (
 		<li key={item[indexedBy] as unknown as string}>
 			<Card className={itemClassName} {...item} />
 		</li>

@@ -1,13 +1,6 @@
 import { createEffect, createEvent, createStore } from "effector-logger";
+import { Post } from "../../interfaces/models";
 import { AddPostRequest } from "../../interfaces/requests";
-
-export interface Post {
-	readonly id: number;
-	readonly authorId: number;
-	readonly authorName: string;
-	readonly authorPhoto: string;
-	readonly content: string;
-}
 
 export const $Posts = createStore<Post[]>([], { name: "Posts" });
 

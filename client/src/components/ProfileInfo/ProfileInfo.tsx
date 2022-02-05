@@ -49,7 +49,7 @@ export const ProfileInfo: FC<ClassNameComponent> = ({ className }) => {
 				</DataDescription>
 			</Datalist>
 
-			<Button className={ProfileInfoStyle.button} type="link" to="change">
+			<Button className={ProfileInfoStyle.button} buttonType="link" to="change">
 				Edit profile
 			</Button>
 		</section>

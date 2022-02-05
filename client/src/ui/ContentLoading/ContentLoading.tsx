@@ -16,7 +16,7 @@ export const ContentLoading: FC<ContentLoadingComponent> = ({
 		<LoadingWrapper
 			className={className}
 			isLoading={isLoading}
-			LoadingIndicator={LoadingIndicator}
+			LoadingIndicator={<LoadingIndicator />}
 		>
 			{children}
 		</LoadingWrapper>

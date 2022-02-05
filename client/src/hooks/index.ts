@@ -8,4 +8,7 @@ export { useClosePopup } from "./useClosePopup";
 export { usePopups } from "./usePopups";
 export { useGetParam } from "./useGetParam";
 export { usePrepareLink } from "./usePrepareLink";
-export { useSelectedPost } from "./useSelectedPost";
+export { usePost } from "./usePost";
+export { useUserPosts } from "./useUserPosts";
+export { useLoadingUserPosts } from "./useLoadingUserPosts";
+export { useLoadingPosts } from "./useLoadingPosts";

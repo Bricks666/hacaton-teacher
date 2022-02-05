@@ -1,5 +1,5 @@
 .button {
-	display: block;
+	display: inline-block;
 
 	min-width: 108px;
 	width: max-content;
@@ -12,20 +12,16 @@
 	letter-spacing: -0.011em;
 	font-weight: 500;
 	font-family: inherit;
+	text-align: center;
 
 	cursor: pointer;
-
-	border-radius: 10px;
-	border: 0;
 }
 
-.button:disabled {
-	background-color: var(--main-color-lighter);
-  cursor: auto;
+.button--common:disabled {
+	cursor: auto;
 }
 
-.button:focus-visible {
-	box-shadow: var(--main-color-darker) 0 0 0 4px;
+.button--common:focus-visible {
 	outline: 0;
 }
 
@@ -33,12 +29,57 @@
 	text-decoration: none;
 }
 
-.button--orange {
+.button--primary {
 	background-color: var(--main-color);
 	color: white;
 }
 
-.button--yellow {
+.button--primary:disabled {
+	background-color: var(--main-color-lighter);
+}
+
+.button--primary:focus-visible {
+	box-shadow: var(--main-color-darker) 0 0 0 4px;
+}
+
+.button--secondary {
 	background-color: var(--third-color);
 	color: black;
+}
+
+.button--secondary:disabled {
+	background-color: var(--third-color-lighter);
+}
+
+.button--secondary:focus-visible {
+	box-shadow: var(--third-color-darker) 0 0 0 4px;
+}
+
+.button--common {
+	border-radius: 10px;
+	border: 0;
+}
+
+.button--listed {
+	border: 0;
+	border-radius: 0;
+}
+
+.button--listed:hover {
+	text-decoration: underline;
+}
+
+.button--monotype {
+	background-color: white;
+	color: black;
+}
+
+.button--monotype:disabled {
+	background-color: whitesmoke;
+	cursor: auto;
+}
+
+.button--monotype:focus-visible {
+	box-shadow: black 0 0 0 4px;
+	outline: 0;
 }

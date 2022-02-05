@@ -1,2 +1,4 @@
 export { mockServerResponse } from "./mockServerResponse";
-export {} from "./mockPosts";
+export { mockPosts } from "./mockPosts";
+export { mockUser } from "./mockUser";
+export { mockUserPosts } from "./mockUserPosts";

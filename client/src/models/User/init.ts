@@ -9,8 +9,7 @@ import {
 	logoutFx,
 	registrationFx,
 } from ".";
-import { mockServerResponse } from "../../mocks";
-import { mockUser } from "../../mocks/mockUser";
+import { mockServerResponse, mockUser } from "../../mocks";
 import { combineUserInfo } from "../../utils";
 
 $LoginStore.on([loginFx.done, authFx.done], () => true);

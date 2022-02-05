@@ -6,14 +6,16 @@ import { ClassNameComponent } from "../../interfaces/common";
 import ButtonStyle from "./Button.module.css";
 
 type ButtonType = "submit" | "reset" | "button" | "link";
-type Color = "orange" | "yellow";
+type Color = "primary" | "secondary" | "monotype";
+type Type = "common" | "listed";
 
 interface ButtonComponent extends ClassNameComponent {
 	readonly onClick?: MouseEventHandler<HTMLButtonElement>;
-	readonly type?: ButtonType;
+	readonly buttonType?: ButtonType;
 	readonly disabled?: boolean;
 	readonly to?: string | Partial<Path>;
 	readonly color?: Color;
+	readonly type?: Type;
 }
 
 export const Button: FC<ButtonComponent> = ({
@@ -22,16 +24,18 @@ export const Button: FC<ButtonComponent> = ({
 	disabled,
 	children,
 	to,
-	type = "button",
-	color = "orange",
+	buttonType = "button",
+	color = "primary",
+	type = "common",
 }) => {
 	const classes = classNames(
 		ButtonStyle.button,
 		ButtonStyle[`button--${color}`],
+		ButtonStyle[`button--${type}`],
 		className
 	);
 
-	if (type === "link") {
+	if (buttonType === "link") {
 		if (!to) {
 			throw new Error("to must be provided");
 		}
@@ -47,7 +51,7 @@ export const Button: FC<ButtonComponent> = ({
 		<button
 			className={classes}
 			onClick={onClick}
-			type={type}
+			type={buttonType}
 			disabled={disabled}
 		>
 			{children}

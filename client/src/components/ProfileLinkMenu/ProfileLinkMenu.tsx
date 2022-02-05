@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { ClassNameComponent } from "../../interfaces/common";
 import { logoutFx } from "../../models/User";
 import { BlockWrapper } from "../../ui/BlockWrapper";
-import { Link } from "../../ui/Link";
+import { Button } from "../../ui/Button";
 
 import ProfileLinkMenuStyle from "./ProfileLinkMenu.module.css";
 
@@ -14,24 +14,28 @@ export const ProfileLinkMenu: FC<ClassNameComponent> = ({ className }) => {
 		<BlockWrapper>
 			<ul className={classNames(ProfileLinkMenuStyle.list, className)}>
 				<li>
-					<Link
+					<Button
 						className={classNames(ProfileLinkMenuStyle.item)}
 						to="/profile"
-						type="react"
+						buttonType="link"
+						type="listed"
+						color="monotype"
 					>
 						Profile
-					</Link>
+					</Button>
 				</li>
 				<li>
-					<button
+					<Button
 						className={classNames(
 							ProfileLinkMenuStyle.item,
 							ProfileLinkMenuStyle.item__button
 						)}
 						onClick={onLogout}
+						type="listed"
+						color="monotype"
 					>
 						Logout
-					</button>
+					</Button>
 				</li>
 			</ul>
 		</BlockWrapper>
