@@ -1,6 +1,6 @@
 import { forward, guard, sample } from "effector";
 import {
-	$AuthIdStore,
+	$AuthStore,
 	$AuthorizationStore,
 	$LoginStore,
 	auth,
@@ -12,6 +12,17 @@ import {
 	registration,
 	registrationFx,
 } from ".";
+import {
+	auth as authAPI,
+	login as loginAPI,
+	logout as logoutAPI,
+	registration as registrationAPI,
+} from "../../api";
+
+authFx.use(authAPI);
+loginFx.use(loginAPI);
+registrationFx.use(registrationAPI);
+logoutFx.use(logoutAPI);
 
 forward({
 	from: authFx.pending,
@@ -20,7 +31,7 @@ forward({
 
 forward({
 	from: [loginFx.doneData, authFx.doneData],
-	to: $AuthIdStore,
+	to: $AuthStore,
 });
 
 sample({
@@ -48,7 +59,7 @@ guard({
 	clock: login,
 	filter: sample({
 		source: [$LoginStore, loginFx.pending],
-		fn: (source) => source.every((i) => i),
+		fn: (source) => source.every((i) => !i),
 	}),
 	target: loginFx,
 });

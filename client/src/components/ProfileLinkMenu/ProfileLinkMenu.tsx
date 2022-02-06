@@ -4,13 +4,13 @@ import { ClassNameComponent } from "../../interfaces/common";
 import { logout } from "../../models/Auth";
 import { BlockWrapper } from "../../ui/BlockWrapper";
 import { Button } from "../../ui/Button";
+import { useAuthInfo } from "../../hooks";
 
 import ProfileLinkMenuStyle from "./ProfileLinkMenu.module.css";
-import { useUserInfo } from "../../hooks";
 
 export const ProfileLinkMenu: FC<ClassNameComponent> = ({ className }) => {
 	const onLogout = useCallback(() => logout(), []);
-	const { id } = useUserInfo();
+	const { id } = useAuthInfo();
 
 	return (
 		<BlockWrapper>

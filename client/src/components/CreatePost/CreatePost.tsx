@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { useClosePopup, useUserInfo } from "../../hooks";
+import { useAuthInfo, useClosePopup } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
 import { MainPopup } from "../../ui/MainPopup";
 import { Picture } from "../../ui/Picture";
@@ -13,7 +13,7 @@ interface CreatePostComponent extends ClassNameComponent {
 }
 
 export const CreatePost: FC<CreatePostComponent> = ({ className, isOpen }) => {
-	const { photo, userName } = useUserInfo();
+	const { photo, userName } = useAuthInfo();
 	const onClose = useClosePopup();
 
 	return (

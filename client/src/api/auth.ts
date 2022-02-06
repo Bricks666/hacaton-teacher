@@ -1,8 +1,8 @@
-import { ChangeProfileInfoRequest, LoginRequest } from "../interfaces/requests";
-import { mockServerResponse, mockProfile } from "../mocks";
+import { LoginRequest } from "../interfaces/requests";
+import { mockServerResponse, mockUsers } from "../mocks";
 
 export const auth = async () => {
-	return await mockServerResponse(400, mockProfile);
+	return await mockServerResponse(300, mockUsers[0]);
 };
 
 export const registration = async () => {
@@ -10,13 +10,19 @@ export const registration = async () => {
 };
 
 export const login = async ({ login, password, remember }: LoginRequest) => {
-	return await mockServerResponse(300, mockProfile);
+	const user = mockUsers.find((user) => user.login === login);
+
+	if (!user || user.password !== password) {
+		throw new Error();
+	}
+
+	return await mockServerResponse(300, {
+		id: user.id,
+		userName: user.userName,
+		photo: user.photo,
+	});
 };
 
 export const logout = async () => {
 	return await mockServerResponse(300, undefined);
-};
-
-export const changeProfileInfo = async (newInfo: ChangeProfileInfoRequest) => {
-	return await mockServerResponse(300, newInfo);
 };

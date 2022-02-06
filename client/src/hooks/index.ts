@@ -1,6 +1,6 @@
 export { useIsLogin } from "./useIsLogin";
 export { useLocationState } from "./useLocationState";
-export { useUserInfo } from "./useUserInfo";
+export { useProfileInfo } from "./useProfileInfo";
 export { useIsAuthorization } from "./useIsAuthorization";
 export { useClickOutside } from "./useClickOutside";
 export { usePosts } from "./usePosts";
@@ -15,3 +15,4 @@ export { useLoadingPosts } from "./useLoadingPosts";
 export { useUserPerformances } from "./useUserPerformances";
 export { useLoadingUserPerformances } from "./useLoadingUserPerformances";
 export { useIsPageOwner } from "./useIsPageOwner";
+export { useAuthInfo } from "./useAuthInfo";

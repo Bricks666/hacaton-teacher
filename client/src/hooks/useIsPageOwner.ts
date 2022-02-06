@@ -1,8 +1,9 @@
-import { useGetParam, useUserInfo } from ".";
+import { useStore } from "effector-react";
+import { useParams } from "react-router-dom";
+import { $AuthStore } from "../models/Auth";
 
 export const useIsPageOwner = (): boolean => {
-	const paramId = useGetParam("id");
-	const { id } = useUserInfo();
-
-	return !!paramId && +paramId === id;
+	const params = useParams();
+	const { id: authId } = useStore($AuthStore);
+	return !!params.id && +params.id === +authId;
 };

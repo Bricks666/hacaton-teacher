@@ -7,6 +7,8 @@ import { FullScreenPopup } from "../../ui/FullScreenPopup";
 import { SectionHeader } from "../../ui/SectionHeader";
 import { UserPosts } from "../UserPosts";
 
+import UserBlogStyle from "./UserBlog.module.css";
+
 interface UserBlog extends ClassNameComponent {
 	readonly isOpen: boolean;
 }
@@ -21,10 +23,19 @@ export const UserBlog: FC<UserBlog> = ({ isOpen }) => {
 	});
 
 	return (
-		<FullScreenPopup isOpen={isOpen} onClose={onClose}>
-			<SectionHeader>Blog</SectionHeader>
+		<FullScreenPopup
+			className={UserBlogStyle.layout}
+			isOpen={isOpen}
+			onClose={onClose}
+		>
+			<SectionHeader className={UserBlogStyle.header}>Blog</SectionHeader>
 			{isPageOwner && (
-				<Button buttonType="link" to={postFormLink}>
+				<Button
+					className={UserBlogStyle.button}
+					buttonType="link"
+					color="secondary"
+					to={postFormLink}
+				>
 					Add post
 				</Button>
 			)}

@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React, { FC, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { useUserInfo } from "../../hooks";
+import { useProfileInfo } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
 import { ChangeProfileInfoRequest } from "../../interfaces/requests";
 import { changeProfileInfoFx } from "../../models/Profile";
@@ -15,7 +15,7 @@ import ChangeProfileInfoFormStyle from "./ChangeProfileInfoForm.module.css";
 export const ChangeProfileInfoForm: FC<ClassNameComponent> = ({
 	className,
 }) => {
-	const initialValue = useUserInfo();
+	const initialValue = useProfileInfo();
 
 	const photo = initialValue.photo;
 

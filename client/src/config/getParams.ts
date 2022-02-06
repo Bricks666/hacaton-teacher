@@ -11,9 +11,11 @@ export const GET_PARAMS: GetParams = {
 interface Popups {
 	readonly post: string;
 	readonly userBlog: string;
+	readonly userPerformance: string;
 }
 
 export const POPUPS: Popups = {
 	post: "post",
 	userBlog: "user-blog",
+	userPerformance: "user-performance",
 };

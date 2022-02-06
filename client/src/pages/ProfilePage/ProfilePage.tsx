@@ -20,6 +20,12 @@ export const ProfilePage: FC<ClassNameComponent> = ({ className }) => {
 		},
 	});
 
+	const userPerformance = usePrepareLink({
+		query: {
+			[GET_PARAMS.popups]: POPUPS.userPerformance,
+		},
+	});
+
 	return (
 		<main className={className}>
 			<ContentWrapper className={ProfilePageStyle.profilePage}>
@@ -38,7 +44,7 @@ export const ProfilePage: FC<ClassNameComponent> = ({ className }) => {
 						element={<ProfileInfo className={ProfilePageStyle.profileInfo} />}
 					/>
 				</Routes>
-				<ProfileBlock label="Performance monitoring" to="performance">
+				<ProfileBlock label="Performance monitoring" to={userPerformance}>
 					<LastUserPerformance />
 				</ProfileBlock>
 				<ProfileBlock label="Blog" to={userBlog}>

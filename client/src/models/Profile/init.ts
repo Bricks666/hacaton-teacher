@@ -7,7 +7,14 @@ import {
 	loadProfileInfo,
 	loadProfileInfoFx,
 } from ".";
+import {
+	getProfileInfo,
+	changeProfileInfo as changeProfileInfoAPI,
+} from "../../api";
 import { combineProfileInfo } from "../../utils";
+
+loadProfileInfoFx.use(getProfileInfo);
+changeProfileInfoFx.use(changeProfileInfoAPI);
 
 guard({
 	clock: loadProfileInfo,

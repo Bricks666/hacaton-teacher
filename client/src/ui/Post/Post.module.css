@@ -1,6 +1,8 @@
 .card {
 	display: grid;
 
+	grid-template-columns: min-content 1fr;
+
 	column-gap: 21px;
 	row-gap: 21px;
 

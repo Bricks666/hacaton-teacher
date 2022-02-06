@@ -26,24 +26,25 @@ export const App: FC = () => {
 					<Route path="*" element={<Header />} />
 				</Routes>
 				<Routes>
-					{routes.map(({ path, Component, isOnlyAuth }) => (
-						<Route
-							path={path}
-							element={
-								isOnlyAuth ? (
-									<OnlyAuth>
+					<Route path="/" element={<Popups />}>
+						{routes.map(({ path, Component, isOnlyAuth }) => (
+							<Route
+								path={path}
+								element={
+									isOnlyAuth ? (
+										<OnlyAuth>
+											<Component className={AppStyle.main} />
+										</OnlyAuth>
+									) : (
 										<Component className={AppStyle.main} />
-									</OnlyAuth>
-								) : (
-									<Component className={AppStyle.main} />
-								)
-							}
-							key={path}
-						/>
-					))}
-					<Route path="*" element={<Navigate to="/blog" replace={true} />} />
+									)
+								}
+								key={path}
+							/>
+						))}
+						<Route path="*" element={<Navigate to="/blog" replace={true} />} />
+					</Route>
 				</Routes>
-				<Popups />
 			</PageLoading>
 		</BrowserRouter>
 	);

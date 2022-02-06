@@ -1,9 +1,12 @@
+import classNames from "classnames";
 import React, { FC } from "react";
 import { useLoadingUserPosts, useUserPosts } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
 import { FriendlyList } from "../../ui/FriendlyList";
 import { EditablePost } from "../EditablePost";
 import { PostCard } from "../PostCard";
+
+import UserPostsStyle from "./UserPosts.module.css";
 
 interface UserPostsComponent extends ClassNameComponent {
 	readonly isPageOwner: boolean;
@@ -18,7 +21,7 @@ export const UserPosts: FC<UserPostsComponent> = ({
 
 	return (
 		<FriendlyList
-			className={className}
+			className={classNames(UserPostsStyle.list, className)}
 			items={posts}
 			Card={isPageOwner ? EditablePost : PostCard}
 			indexedBy="id"
