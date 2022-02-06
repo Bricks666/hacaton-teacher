@@ -1,2 +1,1 @@
-export { getParams } from "./getParams";
-export { popups } from "./popups";
+export { GET_PARAMS, POPUPS } from "./getParams";

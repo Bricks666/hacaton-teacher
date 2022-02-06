@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
-import { $UserStore } from "../models/User";
+import { $ProfileStore } from "../models/Profile";
 
 export const useUserInfo = () => {
-	return useStore($UserStore);
+	return useStore($ProfileStore);
 };

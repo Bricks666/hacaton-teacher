@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Posts } from "../../components/Posts";
-import { getParams, popups } from "../../config";
+import { GET_PARAMS, POPUPS } from "../../config";
 import { usePrepareLink } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
 import { Button } from "../../ui/Button";
@@ -11,7 +11,7 @@ import BlogPageStyle from "./BlogPage.module.css";
 
 export const BlogPage: FC<ClassNameComponent> = ({ className }) => {
 	const createPostLink = usePrepareLink({
-		query: { [getParams.popups]: popups.post },
+		query: { [GET_PARAMS.popups]: POPUPS.post },
 	});
 	return (
 		<main className={className}>

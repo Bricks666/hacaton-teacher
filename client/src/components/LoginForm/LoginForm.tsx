@@ -17,7 +17,7 @@ import {
 } from "../../constants";
 import { useLocationState } from "../../hooks";
 import { createFullPath } from "../../utils";
-import { loginFx } from "../../models/User";
+import { login as loginEv } from "../../models/Auth";
 
 import LoginFormStyle from "./LoginForm.module.css";
 
@@ -70,7 +70,7 @@ export const LoginForm: FC<ClassNameComponent> = ({ className }) => {
 	const onSubmit = useCallback<SubmitHandler<LoginRequest>>(
 		async (values) => {
 			try {
-				await loginFx(values);
+				loginEv(values);
 				reset();
 				const to = state ? createFullPath(state) : "/";
 				navigate(to, { replace: true });

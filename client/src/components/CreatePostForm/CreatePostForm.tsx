@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { FC, useCallback } from "react";
 import { useForm } from "react-hook-form";
-import { getParams } from "../../config";
+import { GET_PARAMS } from "../../config";
 import { useGetParam, usePost } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
 import { AddPostRequest } from "../../interfaces/requests";
@@ -12,7 +12,7 @@ import { Textarea } from "../../ui/Textarea";
 import CreatePostStyle from "./CreatePostForm.module.css";
 
 export const CreatePostFrom: FC<ClassNameComponent> = ({ className }) => {
-	const postId = useGetParam(getParams.post);
+	const postId = useGetParam(GET_PARAMS.postId);
 	const initialValues = usePost(postId) || { content: "" };
 	const buttonLabel = postId ? "Save edit" : "Publish";
 

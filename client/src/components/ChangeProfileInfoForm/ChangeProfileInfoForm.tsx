@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserInfo } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
 import { ChangeProfileInfoRequest } from "../../interfaces/requests";
-import { changeProfileInfoFx } from "../../models/User";
+import { changeProfileInfoFx } from "../../models/Profile";
 import { Button } from "../../ui/Button";
 import { Input } from "../../ui/Input";
 import { ShowImage } from "../../ui/ShowImage";

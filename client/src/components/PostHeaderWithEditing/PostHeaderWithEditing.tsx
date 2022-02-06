@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useState, useMemo } from "react";
-import { getParams, popups } from "../../config";
+import { GET_PARAMS, POPUPS } from "../../config";
 import { usePrepareLink } from "../../hooks";
 import { CardManipulationMenu } from "../../ui/CardManipulationMenu";
 import { PostHeader } from "../../ui/PostHeader";
@@ -18,8 +18,8 @@ export const PostHeaderWithEditing: FC<PostHeaderWithEditingComponent> = ({
 	const [showPopover, setShowPopover] = useState(false);
 	const editFormLink = usePrepareLink({
 		query: {
-			[getParams.popups]: popups.post,
-			[getParams.post]: id,
+			[GET_PARAMS.popups]: POPUPS.post,
+			[GET_PARAMS.postId]: id,
 		},
 	});
 

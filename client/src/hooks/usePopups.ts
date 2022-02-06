@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useGetParam } from ".";
-import { getParams } from "../config";
+import { GET_PARAMS } from "../config";
 
 const parsePopups = (rawPopups: string) => {
 	return rawPopups ? rawPopups.split(",") : [];
 };
 
 export const usePopups = () => {
-	const rawPopups = useGetParam(getParams.popups);
+	const rawPopups = useGetParam(GET_PARAMS.popups);
 	const [mountedPopups, setMountedPopups] = useState<string[]>([]);
 
 	useEffect(() => {

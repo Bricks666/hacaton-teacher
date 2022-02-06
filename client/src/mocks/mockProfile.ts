@@ -1,6 +1,6 @@
-import { User } from "../models/User";
+import { Profile } from "../models/Profile";
 
-export const mockUser: User = {
+export const mockProfile: Profile = {
 	id: 1,
 	email: "example@gmail.com",
 	phone: "+7956894581",

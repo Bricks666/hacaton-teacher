@@ -1,7 +1,7 @@
 import React, { FC, useCallback } from "react";
 import classNames from "classnames";
 import { ClassNameComponent } from "../../interfaces/common";
-import { logoutFx } from "../../models/User";
+import { logout } from "../../models/Auth";
 import { BlockWrapper } from "../../ui/BlockWrapper";
 import { Button } from "../../ui/Button";
 
@@ -9,7 +9,7 @@ import ProfileLinkMenuStyle from "./ProfileLinkMenu.module.css";
 import { useUserInfo } from "../../hooks";
 
 export const ProfileLinkMenu: FC<ClassNameComponent> = ({ className }) => {
-	const onLogout = useCallback(() => logoutFx(), []);
+	const onLogout = useCallback(() => logout(), []);
 	const { id } = useUserInfo();
 
 	return (

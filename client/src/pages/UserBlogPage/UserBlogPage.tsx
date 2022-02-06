@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { UserPosts } from "../../components/UserPosts";
-import { getParams, popups } from "../../config";
+import { GET_PARAMS, POPUPS } from "../../config";
 import { useIsPageOwner, usePrepareLink } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
 import { Button } from "../../ui/Button";
@@ -11,7 +11,7 @@ export const UserBlogPage: FC<ClassNameComponent> = ({ className }) => {
 	const isPageOwner = useIsPageOwner();
 	const postFormLink = usePrepareLink({
 		query: {
-			[getParams.popups]: popups.post,
+			[GET_PARAMS.popups]: POPUPS.post,
 		},
 	});
 	return (

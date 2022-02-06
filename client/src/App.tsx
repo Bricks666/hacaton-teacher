@@ -5,7 +5,7 @@ import { OnlyAuth } from "./components/OnlyAuth";
 import { useIsAuthorization } from "./hooks";
 import { routes } from "./routes";
 import { PageLoading } from "./ui/PageLoading";
-import { authFx } from "./models/User";
+import { auth } from "./models/Auth";
 import { Popups } from "./components/Popups";
 
 import AppStyle from "./App.module.css";
@@ -14,7 +14,7 @@ export const App: FC = () => {
 	const isLoading = useIsAuthorization();
 
 	useEffect(() => {
-		authFx();
+		auth();
 	}, []);
 
 	return (

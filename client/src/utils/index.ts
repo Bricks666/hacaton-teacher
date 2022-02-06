@@ -1,5 +1,5 @@
 export { parseFormError } from "./parseFormError";
 export { createFullPath } from "./createFullPath";
-export { combineUserInfo } from "./combineUserInfo";
+export { combineProfileInfo } from "./combineProfileInfo";
 export { createPost } from "./createPost";
 export { parseParagraphLink } from "./parseParagraphLink";

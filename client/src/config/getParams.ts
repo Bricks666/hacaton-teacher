@@ -1,4 +1,19 @@
-export const getParams: Record<string, string> = {
+interface GetParams {
+	readonly popups: string;
+	readonly postId: string;
+}
+
+export const GET_PARAMS: GetParams = {
 	popups: "popups",
-	post: "post-id",
+	postId: "post-id",
+};
+
+interface Popups {
+	readonly post: string;
+	readonly userBlog: string;
+}
+
+export const POPUPS: Popups = {
+	post: "post",
+	userBlog: "user-blog",
 };

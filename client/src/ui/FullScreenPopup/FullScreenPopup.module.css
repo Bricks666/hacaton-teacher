@@ -1,0 +1,31 @@
+.dialog {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+  z-index: 1;
+
+	background-color: white;
+	background-image: url("../../assets/page_background.png");
+	background-position: center;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.button {
+	position: absolute;
+	left: 190px;
+	top: 125px;
+
+	width: 40px;
+	height: 40px;
+}
+
+.content {
+	display: flex;
+
+	justify-content: center;
+	flex-wrap: wrap;
+}

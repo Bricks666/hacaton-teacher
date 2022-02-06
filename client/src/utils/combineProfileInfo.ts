@@ -1,10 +1,10 @@
 import { ChangeProfileInfoRequest } from "../interfaces/requests";
-import { User } from "../models/User";
+import { Profile } from "../models/Profile";
 
-export const combineUserInfo = (
-	currentInfo: User,
+export const combineProfileInfo = (
+	currentInfo: Profile,
 	newInfo: ChangeProfileInfoRequest
-): User => {
+): Profile => {
 	return {
 		id: currentInfo.id,
 		userName: newInfo.userName || currentInfo.userName,
