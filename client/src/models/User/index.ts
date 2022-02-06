@@ -1,13 +1,27 @@
-import { ChangeProfileInfoRequest } from "./../../interfaces/requests/ChangeProfileInfoRequest";
-import { createEffect, createStore } from "effector-logger";
-import { LoginRequest, RegistrationRequest } from "../../interfaces/requests";
-import { User } from "../../interfaces/models";
+import { createDomain } from "effector-logger";
+import {
+	LoginRequest,
+	RegistrationRequest,
+	ChangeProfileInfoRequest,
+} from "../../interfaces/requests";
 
-export const $LoginStore = createStore<boolean>(true, {
+export interface User {
+	readonly id: number;
+	readonly userName: string;
+	readonly email: string;
+	readonly phone: string;
+	readonly status: string;
+	readonly photo: string;
+	readonly organization: string;
+}
+
+export const UserDomain = createDomain("UserDomain");
+
+export const $LoginStore = UserDomain.createStore<boolean>(true, {
 	name: "LoginStore",
 });
 
-export const $UserStore = createStore<User>(
+export const $UserStore = UserDomain.createStore<User>(
 	{
 		id: 0,
 		userName: "",
@@ -20,21 +34,22 @@ export const $UserStore = createStore<User>(
 	{ name: "UserStore" }
 );
 
-export const $AuthorizationStore = createStore<boolean>(true, {
+export const $AuthorizationStore = UserDomain.createStore<boolean>(true, {
 	name: "authorizationStore",
 });
 
-export const loginFx = createEffect<LoginRequest, User>("loginFx");
+export const loginFx = UserDomain.createEffect<LoginRequest, User>("loginFx");
 
-export const registrationFx = createEffect<RegistrationRequest, void>(
-	"registrationFx"
-);
+export const registrationFx = UserDomain.createEffect<
+	RegistrationRequest,
+	void
+>("registrationFx");
 
-export const logoutFx = createEffect<void, void>("logoutFx");
+export const logoutFx = UserDomain.createEffect<void, void>("logoutFx");
 
-export const authFx = createEffect<void, User>("authFx");
+export const authFx = UserDomain.createEffect<void, User>("authFx");
 
-export const changeProfileInfoFx = createEffect<
+export const changeProfileInfoFx = UserDomain.createEffect<
 	ChangeProfileInfoRequest,
 	ChangeProfileInfoRequest
 >("changeProfileInfoFx");

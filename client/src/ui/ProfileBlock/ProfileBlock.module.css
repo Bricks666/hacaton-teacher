@@ -1,7 +1,7 @@
 .block {
 	display: grid;
 
-	grid-template-rows: min-content 1fr;
+	grid-template-rows: min-content auto;
 
 	row-gap: 20px;
 }

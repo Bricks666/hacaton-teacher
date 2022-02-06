@@ -25,8 +25,8 @@ export const List = <T,>({
 	count = items.length,
 }: ListComponentProps<T>) => {
 	const elements = items.slice(0, count).map((item) => (
-		<li key={item[indexedBy] as unknown as string}>
-			<Card className={itemClassName} {...item} />
+		<li className={itemClassName} key={item[indexedBy] as unknown as string}>
+			<Card {...item} />
 		</li>
 	));
 	switch (type) {

@@ -11,16 +11,17 @@ import InputStyle from "./Input.module.css";
 
 interface InputComponent extends UseFormRegisterReturn, ClassNameComponent {
 	readonly type?: HTMLInputTypeAttribute;
+	readonly inputClassName?: string;
 }
 
 export const Input = forwardRef<
 	HTMLInputElement,
 	PropsWithChildren<InputComponent>
->(({ className, children, type, ...fieldControls }, ref) => {
+>(({ className, children, type, inputClassName, ...fieldControls }, ref) => {
 	return (
 		<div className={classNames(InputStyle.wrapper, className)}>
 			<input
-				className={InputStyle.input}
+				className={classNames(InputStyle.input, inputClassName)}
 				{...fieldControls}
 				type={type}
 				ref={ref}

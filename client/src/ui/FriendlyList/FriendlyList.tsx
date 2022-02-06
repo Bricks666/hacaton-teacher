@@ -2,6 +2,7 @@ import React, { ComponentType } from "react";
 import { ClassNameComponent } from "../../interfaces/common";
 import { ContentLoading } from "../ContentLoading";
 import { List } from "../List";
+import { Paragraph } from "../Paragraph";
 
 type ListType = Parameters<typeof List>[0]["type"];
 
@@ -14,6 +15,7 @@ type FriendlyListProps<T> = ClassNameComponent &
 		readonly type: ListType;
 		readonly count?: number;
 		readonly itemClassName?: string;
+		readonly loadingClassName?: string;
 	};
 
 export const FriendlyList = <T,>({
@@ -26,9 +28,10 @@ export const FriendlyList = <T,>({
 	itemClassName,
 	className,
 	count,
+	loadingClassName,
 }: FriendlyListProps<T>) => {
 	return (
-		<ContentLoading className={className} isLoading={isLoading}>
+		<ContentLoading className={loadingClassName} isLoading={isLoading}>
 			{items.length ? (
 				<List<T>
 					className={className}
@@ -40,7 +43,7 @@ export const FriendlyList = <T,>({
 					count={count}
 				/>
 			) : (
-				<p className={className}>{emptyLabel}</p>
+				<Paragraph className={className}>{emptyLabel}</Paragraph>
 			)}
 		</ContentLoading>
 	);

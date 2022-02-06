@@ -1,11 +1,11 @@
 .profilePage {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: min-content repeat(2, 450px);
+	grid-template-rows: min-content repeat(2, min-content);
 	column-gap: 64px;
+  row-gap: 36px;
 
-	padding: 0 338px;
-	padding-right: 172px;
+	padding: 0 172px;
 }
 .header {
 	grid-column: span 2;

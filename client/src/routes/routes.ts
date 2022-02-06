@@ -4,6 +4,7 @@ import { BlogPage } from "../pages/BlogPage";
 import { LoginPage } from "../pages/LoginPage";
 import { ProfilePage } from "../pages/ProfilePage";
 import { RegistrationPage } from "../pages/RegistrationPage";
+import { UserBlogPage } from "../pages/UserBlogPage";
 
 interface Route {
 	readonly path: string;
@@ -28,5 +29,9 @@ export const routes: Route[] = [
 	{
 		Component: BlogPage,
 		path: "/blog/*",
+	},
+	{
+		Component: UserBlogPage,
+		path: "/profile/:id/blog",
 	},
 ];

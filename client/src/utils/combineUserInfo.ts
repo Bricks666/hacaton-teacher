@@ -1,5 +1,5 @@
 import { ChangeProfileInfoRequest } from "../interfaces/requests";
-import { User } from "../interfaces/models";
+import { User } from "../models/User";
 
 export const combineUserInfo = (
 	currentInfo: User,

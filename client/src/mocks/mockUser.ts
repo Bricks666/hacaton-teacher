@@ -1,4 +1,4 @@
-import { User } from "../interfaces/models";
+import { User } from "../models/User";
 
 export const mockUser: User = {
 	id: 1,

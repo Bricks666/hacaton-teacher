@@ -1,9 +1,7 @@
-import React, { FC, useCallback, useState } from "react";
+import React, { FC, useCallback, useState, useMemo } from "react";
 import { getParams, popups } from "../../config";
 import { usePrepareLink } from "../../hooks";
-import { Button } from "../../ui/Button";
-import { Link } from "../../ui/Link";
-import { Popover } from "../../ui/Popover";
+import { CardManipulationMenu } from "../../ui/CardManipulationMenu";
 import { PostHeader } from "../../ui/PostHeader";
 
 import PostHeaderWithEditingStyle from "./PostHeaderWithEditing.module.css";
@@ -30,6 +28,24 @@ export const PostHeaderWithEditing: FC<PostHeaderWithEditingComponent> = ({
 		[showPopover]
 	);
 
+	const manipulations: Parameters<
+		typeof CardManipulationMenu
+	>[0]["manipulations"] = useMemo(
+		() => [
+			{
+				label: "Edit",
+				type: "link",
+				to: editFormLink,
+			},
+			{
+				label: "Delete",
+				type: "button",
+				onCLick: console.log,
+			},
+		],
+		[editFormLink]
+	);
+
 	return (
 		<PostHeader className={PostHeaderWithEditingStyle.header} {...props}>
 			<button
@@ -38,12 +54,11 @@ export const PostHeaderWithEditing: FC<PostHeaderWithEditingComponent> = ({
 				ref={setParentRef}
 			/>
 			{showPopover && (
-				<Popover reference={parentRef} onClose={onToggleShowPopover}>
-					<Button to={editFormLink} buttonType="link" color="monotype">
-						Edit
-					</Button>
-					<Button color="monotype">Delete</Button>
-				</Popover>
+				<CardManipulationMenu
+					reference={parentRef}
+					onClose={onToggleShowPopover}
+					manipulations={manipulations}
+				/>
 			)}
 		</PostHeader>
 	);

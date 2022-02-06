@@ -12,3 +12,6 @@ export { usePost } from "./usePost";
 export { useUserPosts } from "./useUserPosts";
 export { useLoadingUserPosts } from "./useLoadingUserPosts";
 export { useLoadingPosts } from "./useLoadingPosts";
+export { useUserPerformances } from "./useUserPerformances";
+export { useLoadingUserPerformances } from "./useLoadingUserPerformances";
+export { useIsPageOwner } from "./useIsPageOwner";

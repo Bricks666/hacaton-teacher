@@ -9,7 +9,13 @@ import {
 	logoutFx,
 	registrationFx,
 } from ".";
-import { mockServerResponse, mockUser } from "../../mocks";
+import {
+	login,
+	auth,
+	registration,
+	logout,
+	changeProfileInfo,
+} from "../../api";
 import { combineUserInfo } from "../../utils";
 
 $LoginStore.on([loginFx.done, authFx.done], () => true);
@@ -23,17 +29,11 @@ sample({
 $AuthorizationStore.on(authFx, () => true);
 $AuthorizationStore.on(authFx.done, () => false);
 
-loginFx.use(async () => await mockServerResponse(500, mockUser));
-
-authFx.use(async () => await mockServerResponse(3000, mockUser));
-
-registrationFx.use(async () => await mockServerResponse(500, undefined));
-
-logoutFx.use(async () => await mockServerResponse(300, undefined));
-
-changeProfileInfoFx.use(
-	async (newInfo) => await mockServerResponse(300, newInfo)
-);
+loginFx.use(login);
+authFx.use(auth);
+registrationFx.use(registration);
+logoutFx.use(logout);
+changeProfileInfoFx.use(changeProfileInfo);
 
 sample({
 	source: $UserStore,

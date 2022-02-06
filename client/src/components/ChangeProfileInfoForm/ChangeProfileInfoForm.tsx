@@ -7,7 +7,6 @@ import { ClassNameComponent } from "../../interfaces/common";
 import { ChangeProfileInfoRequest } from "../../interfaces/requests";
 import { changeProfileInfoFx } from "../../models/User";
 import { Button } from "../../ui/Button";
-import { FileInput } from "../../ui/FileInput";
 import { Input } from "../../ui/Input";
 import { ShowImage } from "../../ui/ShowImage";
 
@@ -42,13 +41,17 @@ export const ChangeProfileInfoForm: FC<ClassNameComponent> = ({
 			className={classNames(ChangeProfileInfoFormStyle.form, className)}
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<FileInput {...register("photo", { disabled: isSubmitting })}>
+			<Input
+				{...register("photo", { disabled: isSubmitting })}
+				type="file"
+				inputClassName="visibility-hidden"
+			>
 				<ShowImage
 					className={ChangeProfileInfoFormStyle.photo}
 					photo={(newPhoto && newPhoto[0]) || photo}
 					alt="Your photo"
 				/>
-			</FileInput>
+			</Input>
 			<div className={ChangeProfileInfoFormStyle.fieldBlock}>
 				<Input {...register("organization", { disabled: isSubmitting })}>
 					Organization

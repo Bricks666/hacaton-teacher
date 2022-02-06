@@ -2,7 +2,7 @@ body {
 	background-color: white;
 	background-image: url("./assets/page_background.png");
 	background-repeat: no-repeat;
-	background-size: 100vw cover;
+	background-size: 100vw;
 
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

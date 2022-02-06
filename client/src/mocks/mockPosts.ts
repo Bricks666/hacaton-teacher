@@ -1,4 +1,4 @@
-import { Post } from "../interfaces/models";
+import { Post } from "../models/Posts";
 
 export const mockPosts: Post[] = [
 	{

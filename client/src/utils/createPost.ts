@@ -1,5 +1,5 @@
 import { AddPostRequest } from "../interfaces/requests";
-import { Post } from "../interfaces/models";
+import { Post } from "../models/Posts";
 
 export const createPost = (postRequest: AddPostRequest): Post => {
 	return {

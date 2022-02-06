@@ -1,6 +1,5 @@
 import { useStoreMap } from "effector-react";
-import { Post } from "../interfaces/models";
-import { $Posts } from "../models/Posts";
+import { $Posts, Post } from "../models/Posts";
 
 export const usePost = (postId: number | string | null): Post | null => {
 	return useStoreMap(

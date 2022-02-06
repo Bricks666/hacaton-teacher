@@ -1,0 +1,12 @@
+.list {
+	display: grid;
+
+	grid-template-columns: repeat(2, 1fr);
+
+	column-gap: 56px;
+}
+
+.image {
+	width: 187px;
+  height: 265px;
+}

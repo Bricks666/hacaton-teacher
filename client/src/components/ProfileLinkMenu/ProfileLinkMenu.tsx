@@ -6,9 +6,11 @@ import { BlockWrapper } from "../../ui/BlockWrapper";
 import { Button } from "../../ui/Button";
 
 import ProfileLinkMenuStyle from "./ProfileLinkMenu.module.css";
+import { useUserInfo } from "../../hooks";
 
 export const ProfileLinkMenu: FC<ClassNameComponent> = ({ className }) => {
 	const onLogout = useCallback(() => logoutFx(), []);
+	const { id } = useUserInfo();
 
 	return (
 		<BlockWrapper>
@@ -16,7 +18,7 @@ export const ProfileLinkMenu: FC<ClassNameComponent> = ({ className }) => {
 				<li>
 					<Button
 						className={classNames(ProfileLinkMenuStyle.item)}
-						to="/profile"
+						to={`/profile/${id}`}
 						buttonType="link"
 						type="listed"
 						color="monotype"

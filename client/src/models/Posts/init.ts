@@ -1,7 +1,15 @@
-import { addPost } from "./index";
 import { forward, sample } from "effector";
-import { $LoadingPosts, $Posts, addPostFx, loadPostsFx } from ".";
-import { mockServerResponse } from "../../mocks";
+import {
+	$LoadingPosts,
+	$Posts,
+	addPostFx,
+	loadPostsFx,
+	addPost,
+	loadUserPostsFx,
+	$UserPosts,
+	$LoadingUserPosts,
+} from ".";
+import { mockServerResponse, mockUserPosts } from "../../mocks";
 import { mockPosts } from "../../mocks/mockPosts";
 import { createPost } from "../../utils";
 
@@ -33,4 +41,16 @@ sample({
 	clock: addPost,
 	fn: (posts, post) => [...posts, post],
 	target: $Posts,
+});
+
+forward({
+	from: loadUserPostsFx.doneData,
+	to: $UserPosts,
+});
+
+loadUserPostsFx.use(async () => await mockServerResponse(300, mockUserPosts));
+
+forward({
+	from: loadUserPostsFx.pending,
+	to: $LoadingUserPosts,
 });

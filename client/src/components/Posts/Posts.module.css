@@ -1,5 +1,8 @@
 .list {
-  display: grid;
+	display: grid;
 
-  row-gap: 36px;
+	row-gap: 36px;
+}
+.loading {
+	height: 100%;
 }

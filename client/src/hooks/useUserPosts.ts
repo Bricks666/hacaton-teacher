@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
 import { useEffect } from "react";
-import { $UserPosts, loadUserPostsFx } from "../models/UserPosts";
+import { $UserPosts, loadUserPostsFx } from "../models/Posts";
 
 export const useUserPosts = () => {
 	const posts = useStore($UserPosts);
