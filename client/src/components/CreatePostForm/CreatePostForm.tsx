@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React, { FC, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { GET_PARAMS } from "../../config";
-import { useGetParam, usePost } from "../../hooks";
+import { useGetParam, useUserPost } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
 import { AddPostRequest } from "../../interfaces/requests";
 import { addPostFx } from "../../models/Posts";
@@ -13,7 +13,7 @@ import CreatePostStyle from "./CreatePostForm.module.css";
 
 export const CreatePostFrom: FC<ClassNameComponent> = ({ className }) => {
 	const postId = useGetParam(GET_PARAMS.postId);
-	const initialValues = usePost(postId) || { content: "" };
+	const initialValues = useUserPost(postId) || { content: "" };
 	const buttonLabel = postId ? "Save edit" : "Publish";
 
 	const { register, handleSubmit, reset, formState } = useForm<AddPostRequest>({

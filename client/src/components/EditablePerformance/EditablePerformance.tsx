@@ -11,6 +11,7 @@ export const EditablePerformance: FC<
 	const editFormLink = usePrepareLink({
 		addQueryParam: {
 			[GET_PARAMS.popups]: POPUPS.performance,
+			[GET_PARAMS.performanceId]: props.id,
 		},
 	});
 

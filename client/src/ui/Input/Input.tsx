@@ -12,6 +12,7 @@ import InputStyle from "./Input.module.css";
 interface InputComponent extends UseFormRegisterReturn, ClassNameComponent {
 	readonly type?: HTMLInputTypeAttribute;
 	readonly inputClassName?: string;
+	readonly placeholder?: string;
 }
 
 export const Input = forwardRef<
