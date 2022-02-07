@@ -16,3 +16,4 @@ export { useUserPerformances } from "./useUserPerformances";
 export { useLoadingUserPerformances } from "./useLoadingUserPerformances";
 export { useIsPageOwner } from "./useIsPageOwner";
 export { useAuthInfo } from "./useAuthInfo";
+export { useLoadingProfile } from "./useLoadingProfile";

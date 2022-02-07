@@ -22,6 +22,7 @@ export const UserPosts: FC<UserPostsComponent> = ({
 	return (
 		<FriendlyList
 			className={classNames(UserPostsStyle.list, className)}
+			loadingClassName={UserPostsStyle.loading}
 			items={posts}
 			Card={isPageOwner ? EditablePost : PostCard}
 			indexedBy="id"

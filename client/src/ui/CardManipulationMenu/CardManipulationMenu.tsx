@@ -1,15 +1,8 @@
 import React, { FC, MouseEvent, useMemo } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameComponent, Manipulation } from "../../interfaces/common";
 import { Button } from "../Button";
 import { List } from "../List";
 import { Popover } from "../Popover";
-
-interface Manipulation {
-	readonly label: string;
-	readonly type: ButtonProps["buttonType"];
-	readonly to?: ButtonProps["to"];
-	readonly onCLick?: ButtonProps["onClick"];
-}
 
 type ButtonProps = Parameters<typeof Button>[0];
 

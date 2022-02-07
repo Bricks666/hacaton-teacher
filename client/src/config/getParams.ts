@@ -12,10 +12,12 @@ interface Popups {
 	readonly post: string;
 	readonly userBlog: string;
 	readonly userPerformance: string;
+	readonly performance: string;
 }
 
 export const POPUPS: Popups = {
 	post: "post",
 	userBlog: "user-blog",
 	userPerformance: "user-performance",
+	performance: "performance",
 };

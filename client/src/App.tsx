@@ -43,6 +43,7 @@ export const App: FC = () => {
 							/>
 						))}
 						<Route path="*" element={<Navigate to="/blog" replace={true} />} />
+						<Route path="/" element={<Navigate to="/blog" replace={true} />} />
 					</Route>
 				</Routes>
 			</PageLoading>

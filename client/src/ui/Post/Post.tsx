@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { ComponentType, FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { ClassNameComponent } from "../../interfaces/common";
 import { BlockWrapper } from "../BlockWrapper";
 import { Link } from "../Link";
@@ -8,19 +8,13 @@ import { Picture } from "../Picture";
 
 import PostStyle from "./Post.module.css";
 
-interface PostHeaderComponent {
-	readonly id: number;
-	readonly link: string;
-	readonly authorName: string;
-}
-
 interface PostComponent extends ClassNameComponent {
 	readonly id: number;
 	readonly authorId: number;
 	readonly authorName: string;
 	readonly authorPhoto: string;
 	readonly content: string;
-	readonly Header: ComponentType<PostHeaderComponent>;
+	readonly Header: ReactNode;
 }
 
 export const Post: FC<PostComponent> = ({
@@ -28,7 +22,6 @@ export const Post: FC<PostComponent> = ({
 	authorPhoto,
 	content,
 	authorId,
-	id,
 	Header,
 	className,
 }) => {
@@ -43,7 +36,7 @@ export const Post: FC<PostComponent> = ({
 					alt={authorName}
 				/>
 			</Link>
-			<Header authorName={authorName} link={link} id={id} />
+			{Header}
 			<ParagraphWithLinks className={PostStyle.content}>
 				{content}
 			</ParagraphWithLinks>

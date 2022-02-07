@@ -1,12 +1,18 @@
 import React, { FC } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameComponent, ExtractProps } from "../../interfaces/common";
 import { Post } from "../../ui/Post";
-import { PostHeader } from "../../ui/PostHeader";
+import { CardHeader } from "../../ui/CardHeader";
 
 interface PostCardComponent
 	extends ClassNameComponent,
-		Omit<Parameters<typeof Post>[0], "Header"> {}
+		ExtractProps<typeof Post, "Header"> {}
 
 export const PostCard: FC<PostCardComponent> = (props) => {
-	return <Post {...props} Header={PostHeader} />;
+	const link = `/profile/${props.authorId}`;
+	return (
+		<Post
+			{...props}
+			Header={<CardHeader header={props.authorName} link={link} />}
+		/>
+	);
 };

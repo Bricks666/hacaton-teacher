@@ -45,3 +45,8 @@ sample({
 	fn: combineProfileInfo,
 	target: $ProfileStore,
 });
+
+forward({
+	from: loadProfileInfoFx.pending,
+	to: $LoadingProfileInfo,
+});

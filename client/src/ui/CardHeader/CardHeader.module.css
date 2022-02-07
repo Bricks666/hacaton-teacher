@@ -1,14 +1,15 @@
 .paragraph {
 	padding: 0;
 	margin: 0;
-  margin-top: 6px;
+	margin-top: 6px;
 
 	font-size: 20px;
 	line-height: 1.2em;
 	letter-spacing: -0.011em;
 	font-weight: 700;
+	color: var(--second-color);
 }
 
 .link {
-	color: var(--second-color);
+	color: inherit;
 }

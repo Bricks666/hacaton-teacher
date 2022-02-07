@@ -4,41 +4,44 @@ import { useClosePopup, useIsPageOwner, usePrepareLink } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
 import { Button } from "../../ui/Button";
 import { FullScreenPopup } from "../../ui/FullScreenPopup";
-import { UserPosts } from "../UserPosts";
+import { UserPerformances } from "../UserPerformances";
 
-import UserBlogStyle from "./UserBlog.module.css";
+import UserPerformanceMonitoringStyle from "./UserPerformanceMonitoring.module.css";
 
-interface UserBlog extends ClassNameComponent {
+interface UserPerformanceMonitoringComponent extends ClassNameComponent {
 	readonly isOpen: boolean;
 }
 
-export const UserBlog: FC<UserBlog> = ({ isOpen }) => {
+export const UserPerformanceMonitoring: FC<
+	UserPerformanceMonitoringComponent
+> = ({ isOpen }) => {
 	const onClose = useClosePopup();
 	const isPageOwner = useIsPageOwner();
-	const postFormLink = usePrepareLink({
+
+	const createPerformanceLink = usePrepareLink({
 		addQueryParam: {
-			[GET_PARAMS.popups]: POPUPS.post,
+			[GET_PARAMS.popups]: POPUPS.performance,
 		},
 	});
 
 	return (
 		<FullScreenPopup
-			className={UserBlogStyle.layout}
+			className={UserPerformanceMonitoringStyle.content}
 			isOpen={isOpen}
 			onClose={onClose}
-			label="Blog"
+			label="Performance"
 		>
 			{isPageOwner && (
 				<Button
-					className={UserBlogStyle.button}
+					className={UserPerformanceMonitoringStyle.button}
 					buttonType="link"
 					color="secondary"
-					to={postFormLink}
+					to={createPerformanceLink}
 				>
-					Add post
+					Add achievement
 				</Button>
 			)}
-			<UserPosts isPageOwner={isPageOwner} />
+			<UserPerformances isPageOwner={isPageOwner} />
 		</FullScreenPopup>
 	);
 };

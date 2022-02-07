@@ -1,0 +1,9 @@
+.content {
+	display: grid;
+
+  row-gap: 10px;
+}
+
+.button {
+  margin-left: auto;
+}

@@ -3,7 +3,7 @@
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: min-content repeat(2, min-content);
 	column-gap: 64px;
-  row-gap: 36px;
+	row-gap: 36px;
 
 	padding: 0 172px;
 }
@@ -15,4 +15,9 @@
 	grid-row: span 2;
 
 	margin-bottom: 142px;
+}
+
+.loading {
+	grid-column: 1/ -1;
+	grid-row: 2/-1;
 }

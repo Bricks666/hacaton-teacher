@@ -9,7 +9,7 @@ export const registration = async () => {
 	return await mockServerResponse(300, undefined);
 };
 
-export const login = async ({ login, password, remember }: LoginRequest) => {
+export const login = async ({ login, password }: LoginRequest) => {
 	const user = mockUsers.find((user) => user.login === login);
 
 	if (!user || user.password !== password) {

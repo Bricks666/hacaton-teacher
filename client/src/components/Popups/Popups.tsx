@@ -4,10 +4,12 @@ import { POPUPS } from "../../config";
 import { usePopups } from "../../hooks";
 import { CreatePost } from "../CreatePost";
 import { UserBlog } from "../UserBlog";
+import { UserPerformanceMonitoring } from "../UserPerformanceMonitoring";
 
 const mapPopups: Record<string, ComponentType<{ readonly isOpen: boolean }>> = {
 	[POPUPS.post]: CreatePost,
 	[POPUPS.userBlog]: UserBlog,
+	[POPUPS.userPerformance]: UserPerformanceMonitoring,
 };
 
 export const Popups: FC = () => {

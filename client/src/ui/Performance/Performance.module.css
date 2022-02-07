@@ -1,0 +1,25 @@
+.card {
+	display: grid;
+
+	grid-template-columns: 180px 1fr;
+	grid-template-rows: min-content 1fr;
+	gap: 30px;
+
+	padding-top: 6px;
+	padding-right: 40px;
+	padding-bottom: 40px;
+
+	background-color: white;
+
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+}
+
+.picture {
+	grid-row: 1/-1;
+	grid-column: 1;
+}
+
+.header {
+	margin-left: 90px;
+}
