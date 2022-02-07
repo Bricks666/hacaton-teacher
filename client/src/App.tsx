@@ -1,11 +1,12 @@
 import React, { FC, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header";
 import { OnlyAuth } from "./components/OnlyAuth";
 import { useIsAuthorization } from "./hooks";
 import { routes } from "./routes";
 import { PageLoading } from "./ui/PageLoading";
-import { authFx } from "./models/User";
+import { auth } from "./models/Auth";
+import { Popups } from "./components/Popups";
 
 import AppStyle from "./App.module.css";
 
@@ -13,7 +14,7 @@ export const App: FC = () => {
 	const isLoading = useIsAuthorization();
 
 	useEffect(() => {
-		authFx();
+		auth();
 	}, []);
 
 	return (
@@ -25,21 +26,25 @@ export const App: FC = () => {
 					<Route path="*" element={<Header />} />
 				</Routes>
 				<Routes>
-					{routes.map(({ path, Component, isOnlyAuth }) => (
-						<Route
-							path={path}
-							element={
-								isOnlyAuth ? (
-									<OnlyAuth>
+					<Route path="/" element={<Popups />}>
+						{routes.map(({ path, Component, isOnlyAuth }) => (
+							<Route
+								path={path}
+								element={
+									isOnlyAuth ? (
+										<OnlyAuth>
+											<Component className={AppStyle.main} />
+										</OnlyAuth>
+									) : (
 										<Component className={AppStyle.main} />
-									</OnlyAuth>
-								) : (
-									<Component className={AppStyle.main} />
-								)
-							}
-							key={path}
-						/>
-					))}
+									)
+								}
+								key={path}
+							/>
+						))}
+						<Route path="*" element={<Navigate to="/blog" replace={true} />} />
+						<Route path="/" element={<Navigate to="/blog" replace={true} />} />
+					</Route>
 				</Routes>
 			</PageLoading>
 		</BrowserRouter>

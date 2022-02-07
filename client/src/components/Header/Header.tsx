@@ -3,6 +3,7 @@ import React, { FC, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useIsLogin } from "../../hooks";
 import { ClassNameComponent } from "../../interfaces/common";
+import { Button } from "../../ui/Button";
 import { ContentWrapper } from "../../ui/ContentWrapper/ContentWrapper";
 import { Logo } from "../../ui/Logo";
 import { Navigation } from "../Navigation";
@@ -15,6 +16,7 @@ export const Header: FC<ClassNameComponent> = ({ className }) => {
 	const isLogin = useIsLogin();
 	const [isSmallLink, setIsSmallLink] = useState(false);
 	const onSearch = (value: unknown) => console.log(value);
+
 	return (
 		<header className={classNames(className)}>
 			<ContentWrapper className={HeaderStyle.header}>
@@ -35,7 +37,19 @@ export const Header: FC<ClassNameComponent> = ({ className }) => {
 						}
 					/>
 				</Routes>
-				{isLogin && <ProfileLink className={HeaderStyle.profileLink} />}
+				{isLogin ? (
+					<ProfileLink className={HeaderStyle.profileLink} />
+				) : (
+					<Button
+						className={HeaderStyle.profileLink}
+						buttonType="link"
+						color="monotype"
+						type="listed"
+						to="/login"
+					>
+						Login
+					</Button>
+				)}
 			</ContentWrapper>
 		</header>
 	);

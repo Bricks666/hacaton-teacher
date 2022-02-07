@@ -1,0 +1,8 @@
+.layout {
+	display: grid;
+
+	row-gap: 30px;
+}
+.button {
+	justify-self: end;
+}

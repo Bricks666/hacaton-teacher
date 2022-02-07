@@ -5,6 +5,9 @@ import { ClassNameComponent } from "../../interfaces/common";
 import { Portal } from "../Portal";
 import { useClickOutside } from "../../hooks";
 
+import PopoverStyle from "./Popover.module.css";
+import classNames from "classnames";
+
 interface PopoverComponent extends ClassNameComponent {
 	readonly reference: HTMLElement | null;
 	readonly onClose: (evt?: MouseEvent) => unknown;
@@ -27,7 +30,7 @@ export const Popover: FC<PopoverComponent> = ({
 	return (
 		<Portal>
 			<div
-				className={className}
+				className={classNames(PopoverStyle.popover, className)}
 				style={styles.popper}
 				{...attributes.popper}
 				ref={setPopoverRef}

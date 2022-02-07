@@ -22,7 +22,7 @@ export const routes: Route[] = [
 	},
 	{
 		Component: ProfilePage,
-		path: "/profile/*",
+		path: "/profile/:id/*",
 		isOnlyAuth: true,
 	},
 	{

@@ -11,36 +11,15 @@
 
 	list-style: none;
 
-	background-color: white;
-
-	border: 1px solid var(--main-color);
 	border-radius: 10px;
 }
 
 .item {
+	padding: 0;
+
 	color: var(--second-color);
 	font-size: 20px;
 	line-height: 1.2em;
 	font-weight: 500;
 	letter-spacing: -0.011em;
-}
-
-.item__link {
-	text-decoration: none;
-}
-
-.item__button {
-	padding: 0;
-
-	border: none;
-	border-radius: 0;
-
-	background-color: inherit;
-
-	font-family: inherit;
-	cursor: pointer;
-}
-
-.item:hover {
-	text-decoration: underline;
 }

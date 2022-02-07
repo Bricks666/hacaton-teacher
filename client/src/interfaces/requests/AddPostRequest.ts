@@ -1,3 +1,3 @@
 export interface AddPostRequest {
-	readonly post: string;
+	readonly content: string;
 }

@@ -1,5 +1,5 @@
 import { useStore } from "effector-react";
-import { $LoginStore } from "../models/User";
+import { $LoginStore } from "../models/Auth";
 import { SimpleFunction } from "../interfaces/common";
 
 export const useIsLogin: SimpleFunction<boolean> = () => {

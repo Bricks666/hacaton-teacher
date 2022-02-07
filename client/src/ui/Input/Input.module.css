@@ -35,3 +35,7 @@
 .input:focus-visible {
 	border-bottom-color: var(--main-color-darker);
 }
+
+.input::placeholder {
+	color: rgba(0, 0, 0, 0.5);
+}

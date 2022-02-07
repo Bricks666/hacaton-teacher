@@ -1,0 +1,65 @@
+.section {
+	display: grid;
+
+	column-gap: 28px;
+	row-gap: 20px;
+
+	padding: 22px;
+
+	grid-template-rows: max-content 216px min-content;
+	grid-template-columns: 145px 400px;
+}
+
+.form {
+	grid-column: 2;
+	grid-row: span 3;
+
+	display: grid;
+	row-gap: 20px;
+}
+
+.field {
+	padding: 20px 10px;
+
+	border: 1px solid var(--main-color);
+	border-radius: 20px;
+}
+
+.textarea {
+	height: 216px;
+}
+
+.photo {
+	justify-self: center;
+	align-self: center;
+
+	width: 56px;
+	height: 56px;
+
+	border-radius: 50%;
+}
+
+.button {
+	justify-self: end;
+}
+
+.photoFile {
+	grid-row: 2;
+}
+
+.showImage {
+	position: relative;
+
+	height: 100%;
+}
+
+.showImage::before {
+	content: "Photo";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	color: white;
+
+	transform: translate(50%);
+}

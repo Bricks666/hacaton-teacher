@@ -4,12 +4,8 @@
 	column-gap: 20px;
 
 	width: 100%;
+	max-width: 200px;
 	height: 50px;
-
-	background-color: white;
-
-	border-radius: 30px;
-	border: 1px solid var(--main-color);
 }
 
 .photo {
@@ -26,4 +22,7 @@
 	padding-left: 0;
 
 	font-weight: 700;
+
+	word-wrap: nowrap;
+	text-overflow: ellipsis;
 }

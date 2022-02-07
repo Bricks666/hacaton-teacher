@@ -1,37 +1,45 @@
 import React, { FC, useCallback } from "react";
 import classNames from "classnames";
-import { Link } from "react-router-dom";
 import { ClassNameComponent } from "../../interfaces/common";
-import { logoutFx } from "../../models/User";
+import { logout } from "../../models/Auth";
+import { BlockWrapper } from "../../ui/BlockWrapper";
+import { Button } from "../../ui/Button";
+import { useAuthInfo } from "../../hooks";
 
 import ProfileLinkMenuStyle from "./ProfileLinkMenu.module.css";
 
 export const ProfileLinkMenu: FC<ClassNameComponent> = ({ className }) => {
-	const onLogout = useCallback(() => logoutFx(), []);
+	const onLogout = useCallback(() => logout(), []);
+	const { id } = useAuthInfo();
+
 	return (
-		<ul className={classNames(ProfileLinkMenuStyle.list, className)}>
-			<li>
-				<Link
-					className={classNames(
-						ProfileLinkMenuStyle.item,
-						ProfileLinkMenuStyle.item__link
-					)}
-					to="/profile"
-				>
-					Profile
-				</Link>
-			</li>
-			<li>
-				<button
-					className={classNames(
-						ProfileLinkMenuStyle.item,
-						ProfileLinkMenuStyle.item__button
-					)}
-					onClick={onLogout}
-				>
-					Logout
-				</button>
-			</li>
-		</ul>
+		<BlockWrapper>
+			<ul className={classNames(ProfileLinkMenuStyle.list, className)}>
+				<li>
+					<Button
+						className={classNames(ProfileLinkMenuStyle.item)}
+						to={`/profile/${id}`}
+						buttonType="link"
+						type="listed"
+						color="monotype"
+					>
+						Profile
+					</Button>
+				</li>
+				<li>
+					<Button
+						className={classNames(
+							ProfileLinkMenuStyle.item,
+							ProfileLinkMenuStyle.item__button
+						)}
+						onClick={onLogout}
+						type="listed"
+						color="monotype"
+					>
+						Logout
+					</Button>
+				</li>
+			</ul>
+		</BlockWrapper>
 	);
 };

@@ -13,7 +13,7 @@ import {
 import { useLocationState } from "../../hooks";
 import { ClassNameComponent, SubmitHandler } from "../../interfaces/common";
 import { RegistrationRequest } from "../../interfaces/requests";
-import { registrationFx } from "../../models/User";
+import { registration } from "../../models/Auth";
 import { Button } from "../../ui/Button";
 import { Field } from "../../ui/Field";
 
@@ -73,7 +73,7 @@ export const RegistrationForm: FC<ClassNameComponent> = ({ className }) => {
 	const onSubmit = useCallback<SubmitHandler<RegistrationRequest>>(
 		async (values) => {
 			try {
-				await registrationFx(values);
+				await registration(values);
 				reset();
 				navigate("/login", { replace: true, state });
 			} catch (e) {
@@ -145,7 +145,7 @@ export const RegistrationForm: FC<ClassNameComponent> = ({ className }) => {
 			</Field>
 			<Button
 				className={RegistrationFormStyle.button}
-				type="submit"
+				buttonType="submit"
 				disabled={!isDirty || isSubmitting}
 			>
 				Зарегистрироваться

@@ -9,15 +9,9 @@ import { LoginRequest } from "../../interfaces/requests";
 import { Button } from "../../ui/Button";
 import { Checkbox } from "../../ui/Checkbox";
 import { Field } from "../../ui/Field";
-import {
-	MAX_LOGIN_LENGTH,
-	MAX_PASSWORD_LENGTH,
-	MIN_LOGIN_LENGTH,
-	MIN_PASSWORD_LENGTH,
-} from "../../constants";
 import { useLocationState } from "../../hooks";
 import { createFullPath } from "../../utils";
-import { loginFx } from "../../models/User";
+import { login as loginEv } from "../../models/Auth";
 
 import LoginFormStyle from "./LoginForm.module.css";
 
@@ -29,27 +23,19 @@ const initialValues: Partial<LoginRequest> = {
 
 const validationSchema = Joi.object<LoginRequest>({
 	login: Joi.string()
-		.pattern(new RegExp(/[a-z0-9.,_!?]{6,32}/, "i"))
-		.min(MIN_LOGIN_LENGTH)
-		.max(MAX_LOGIN_LENGTH)
+		.pattern(new RegExp(/[a-z0-9.,_!?]{1,}/, "i"))
 		.required()
 		.messages({
 			"string.pattern.base":
 				"Пароль должен содержать только латинские буквы, цифры и символы '.', ',', '_', '!', '?'",
-			"string.min": `Логин должен быть длиннее ${MIN_LOGIN_LENGTH}`,
-			"string.max": `Логин должен быть короче ${MAX_LOGIN_LENGTH}`,
 			"any.required": "Логин не должен быть пустым",
 		}),
 	password: Joi.string()
-		.pattern(new RegExp(/[a-z0-9.,_!?]{6,32}/, "i"))
-		.min(MIN_PASSWORD_LENGTH)
-		.max(MAX_PASSWORD_LENGTH)
+		.pattern(new RegExp(/[a-z0-9.,_!?]{1,}/, "i"))
 		.required()
 		.messages({
 			"string.pattern.base":
 				"Пароль должен содержать только латинские буквы, цифры и символы '.', ',', '_', '!', '?'",
-			"string.min": `Пароль должен быть длиннее ${MIN_LOGIN_LENGTH}`,
-			"string.max": `Пароль должен быть короче ${MAX_LOGIN_LENGTH}`,
 			"any.required": "Пароль не должен быть пустым",
 		}),
 	remember: Joi.boolean(),
@@ -70,12 +56,12 @@ export const LoginForm: FC<ClassNameComponent> = ({ className }) => {
 	const onSubmit = useCallback<SubmitHandler<LoginRequest>>(
 		async (values) => {
 			try {
-				await loginFx(values);
+				loginEv(values);
 				reset();
 				const to = state ? createFullPath(state) : "/";
 				navigate(to, { replace: true });
 			} catch (e) {
-				e
+				e;
 			}
 		},
 		[reset, state, navigate]
@@ -95,7 +81,7 @@ export const LoginForm: FC<ClassNameComponent> = ({ className }) => {
 			<Checkbox {...register("remember")} label="Запомнить меня" />
 			<Button
 				className={LoginFormStyle.button}
-				type="submit"
+				buttonType="submit"
 				disabled={isSubmitting || !isDirty}
 			>
 				Login
