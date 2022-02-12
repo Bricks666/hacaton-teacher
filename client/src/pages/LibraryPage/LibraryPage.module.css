@@ -1,3 +1,7 @@
 .wrapper {
+	display: grid;
+
+	row-gap: 28px;
+
 	padding: 0 115px;
 }

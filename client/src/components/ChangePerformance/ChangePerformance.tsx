@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { useClosePopup } from "../../hooks";
+import { useGoBack } from "../../hooks";
 import { ClassNameProps } from "../../interfaces/common";
 import { MainPopup } from "../../ui/MainPopup";
 import { PerformanceForm } from "../PerformanceForm";
@@ -12,7 +12,7 @@ export const ChangePerformance: FC<ChangePerformanceComponent> = ({
 	className,
 	isOpen,
 }) => {
-	const onClose = useClosePopup();
+	const onClose = useGoBack();
 
 	return (
 		<MainPopup

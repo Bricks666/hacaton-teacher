@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { GET_PARAMS, POPUPS } from "../../config";
-import { useClosePopup, useIsPageOwner, usePrepareLink } from "../../hooks";
+import { useGoBack, useIsPageOwner, usePrepareLink } from "../../hooks";
 import { ClassNameProps } from "../../interfaces/common";
 import { Button } from "../../ui/Button";
 import { FullScreenPopup } from "../../ui/FullScreenPopup";
@@ -13,7 +13,7 @@ interface UserBlog extends ClassNameProps {
 }
 
 export const UserBlog: FC<UserBlog> = ({ isOpen }) => {
-	const onClose = useClosePopup();
+	const onClose = useGoBack();
 	const isPageOwner = useIsPageOwner();
 	const postFormLink = usePrepareLink({
 		addQueryParam: {

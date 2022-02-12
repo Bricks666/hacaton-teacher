@@ -1,31 +1,50 @@
-.link {
+.book {
 	display: grid;
-	grid-template-rows: 1fr min-content min-content;
-
-	height: 100%;
-	width: 100%;
+	grid-template-columns: 600px 300px;
+	grid-template-rows: min-content 1fr min-content;
+	row-gap: 6px;
+	column-gap: calc(100% - 600px - 300px);
 }
 
-.link:hover .photo {
-	transform: scale(1.2) rotate(5deg);
+.header {
+	font-size: 35px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.dataList {
+	display: grid;
+	column-gap: 5px;
+
+	height: min-content;
+}
+.pair {
+	display: flex;
+
+	column-gap: 4px;
+}
+
+.dataTerm {
+	font-size: 14;
+	line-height: 1.75em;
+	color: var(--main-color);
+}
+
+.dataDescription {
+	font-size: 14;
+	line-height: 1.75em;
+	font-weight: 500;
 }
 
 .photo {
-	transition-property: transform;
-	transition-duration: 0.3s;
-	transition-timing-function: ease-out;
+	grid-row: span 3;
+	grid-column: 2;
+
+	height: 460px;
+
+	margin-left: auto;
 }
 
-.photoContainer {
-	overflow: hidden;
-}
-
-.author {
-	line-height: 2.4em;
-	font-size: 10px;
-}
-
-.name {
-	font-size: 14px;
-	line-height: 1.75em;
+.button {
+	justify-self: end;
 }

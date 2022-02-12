@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { useBooks, useLoadingBooks } from "../../hooks";
 import { ClassNameProps } from "../../interfaces/common";
 import { FriendlyList } from "../../ui/FriendlyList";
-import { Book } from "../Book";
+import { BookCard } from "../BookCard";
 
 import BookListStyle from "./BookList.module.css";
 
@@ -16,7 +16,7 @@ export const BookList: FC<ClassNameProps> = ({ className }) => {
 			className={classNames(BookListStyle.list, className)}
 			itemClassName={BookListStyle.book}
 			items={books}
-			Card={Book}
+			Card={BookCard}
 			indexedBy="id"
 			isLoading={isLoading}
 			type="unnumbered"

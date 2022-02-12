@@ -1,0 +1,15 @@
+.wrapper {
+	position: relative;
+
+	padding: 0 115px;
+}
+
+.button {
+	position: absolute;
+	top: 0;
+	right: 200px;
+}
+
+.header {
+	margin-bottom: 146px;
+}

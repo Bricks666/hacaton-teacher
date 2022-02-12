@@ -21,15 +21,18 @@ export const ProfileBlock: FC<ProfileBlockComponent> = ({
 	return (
 		<article className={classNames(ProfileBlockStyle.block, className)}>
 			{label && (
-				<SubsectionHeader className={ProfileBlockStyle.header}>
-					{to ? (
-						<Link className={ProfileBlockStyle.link} to={to} type="react">
-							{label}
-						</Link>
-					) : (
-						label
-					)}
-				</SubsectionHeader>
+				<SubsectionHeader
+					className={ProfileBlockStyle.header}
+					label={
+						to ? (
+							<Link className={ProfileBlockStyle.link} to={to} type="react">
+								{label}
+							</Link>
+						) : (
+							label
+						)
+					}
+				/>
 			)}
 			<div className={ProfileBlockStyle.content}>{children}</div>
 		</article>

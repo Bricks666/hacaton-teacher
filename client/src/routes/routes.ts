@@ -6,6 +6,7 @@ import { ProfilePage } from "../pages/ProfilePage";
 import { RegistrationPage } from "../pages/RegistrationPage";
 
 const LibraryPage = lazy(() => import("../pages/LibraryPage"));
+const BookPage = lazy(() => import("../pages/BookPage"));
 
 interface Route {
 	readonly path: string;
@@ -34,5 +35,9 @@ export const routes: Route[] = [
 	{
 		Component: LibraryPage,
 		path: "/library/*",
+	},
+	{
+		Component: BookPage,
+		path: "/library/:id",
 	},
 ];
