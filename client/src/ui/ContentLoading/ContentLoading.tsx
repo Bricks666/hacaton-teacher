@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { LoadingIndicator } from "../LoadingIndicator/LoadingIndicator";
 import { LoadingWrapper } from "../LoadingWrapper";
 
-interface ContentLoadingComponent extends ClassNameComponent {
+interface ContentLoadingComponent extends ClassNameProps {
 	readonly isLoading: boolean;
 }
 

@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import React, { FC, useEffect, useState } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { LoadingIndicator } from "../LoadingIndicator/LoadingIndicator";
 import { LoadingWrapper } from "../LoadingWrapper";
 import { Logo } from "../Logo";
 
 import PageLoadingStyle from "./PageLoading.module.css";
 
-interface PageLoadingComponent extends ClassNameComponent {
+interface PageLoadingComponent extends ClassNameProps {
 	readonly isLoading: boolean;
 }
 

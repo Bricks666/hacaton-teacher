@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import React, { FC } from "react";
 import { Path } from "react-router-dom";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { Link } from "../Link";
 import { SubsectionHeader } from "../SubsectionHeader";
 
 import ProfileBlockStyle from "./ProfileBlock.module.css";
 
-interface ProfileBlockComponent extends ClassNameComponent {
+interface ProfileBlockComponent extends ClassNameProps {
 	readonly label?: string;
 	readonly to?: string | Partial<Path>;
 }

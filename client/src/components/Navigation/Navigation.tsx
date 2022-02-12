@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { List } from "../../ui/List";
 import { NavigationItem } from "../../ui/NavigationItem";
 
@@ -30,7 +30,7 @@ const navigation: NavItem[] = [
 	},
 ];
 
-export const Navigation: FC<ClassNameComponent> = ({ className }) => {
+export const Navigation: FC<ClassNameProps> = ({ className }) => {
 	return (
 		<nav className={classNames(NavigationStyle.nav, className)}>
 			<List

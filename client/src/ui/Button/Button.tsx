@@ -1,15 +1,15 @@
 import classNames from "classnames";
 import React, { FC, MouseEventHandler } from "react";
 import { Link, Path } from "react-router-dom";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 
 import ButtonStyle from "./Button.module.css";
 
-type ButtonType = "submit" | "reset" | "button" | "link";
+type ButtonType = "submit" | "reset" | "button";
 type Color = "primary" | "secondary" | "monotype";
-type Type = "common" | "listed";
+type Type = "rounded" | "text" | "round";
 
-interface ButtonComponent extends ClassNameComponent {
+interface ButtonComponent extends ClassNameProps {
 	readonly onClick?: MouseEventHandler<HTMLButtonElement>;
 	readonly buttonType?: ButtonType;
 	readonly disabled?: boolean;
@@ -26,7 +26,7 @@ export const Button: FC<ButtonComponent> = ({
 	to,
 	buttonType = "button",
 	color = "primary",
-	type = "common",
+	type = "rounded",
 }) => {
 	const classes = classNames(
 		ButtonStyle.button,
@@ -34,14 +34,11 @@ export const Button: FC<ButtonComponent> = ({
 		ButtonStyle[`button--${type}`],
 		className
 	);
+	console.log(className, children);
 
-	if (buttonType === "link") {
-		if (!to) {
-			throw new Error("to must be provided");
-		}
-
+	if (to) {
 		return (
-			<Link className={classNames(classes, ButtonStyle.button__link)} to={to}>
+			<Link className={classes} to={to}>
 				{children}
 			</Link>
 		);

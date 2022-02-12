@@ -18,12 +18,10 @@ export const EditablePerformance: FC<
 	const manipulations: Manipulation[] = [
 		{
 			label: "Edit",
-			type: "link",
 			to: editFormLink,
 		},
 		{
 			label: "Delete",
-			type: "button",
 			onCLick: console.log,
 		},
 	];

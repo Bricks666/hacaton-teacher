@@ -15,7 +15,7 @@ const mapPopups: Record<string, ComponentType<{ readonly isOpen: boolean }>> = {
 };
 
 export const Popups: FC = () => {
-	const { mountedPopups } = usePopups();
+	const { mountedPopups, popups } = usePopups();
 
 	useEffect(() => {
 		if (mountedPopups.length) {
@@ -33,7 +33,12 @@ export const Popups: FC = () => {
 					return null;
 				}
 
-				return <Component key={mountedPopup} isOpen={true} />;
+				return (
+					<Component
+						key={mountedPopup}
+						isOpen={popups.includes(mountedPopup)}
+					/>
+				);
 			})}
 			<Outlet />
 		</>

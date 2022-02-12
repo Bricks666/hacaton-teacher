@@ -3,7 +3,7 @@ import React, { FC, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useProfileInfo } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { ChangeProfileInfoRequest } from "../../interfaces/requests";
 import { changeProfileInfoFx } from "../../models/Profile";
 import { Button } from "../../ui/Button";
@@ -12,7 +12,7 @@ import { ShowImage } from "../../ui/ShowImage";
 
 import ChangeProfileInfoFormStyle from "./ChangeProfileInfoForm.module.css";
 
-export const ChangeProfileInfoForm: FC<ClassNameComponent> = ({
+export const ChangeProfileInfoForm: FC<ClassNameProps> = ({
 	className,
 }) => {
 	const initialValue = useProfileInfo();
@@ -69,6 +69,7 @@ export const ChangeProfileInfoForm: FC<ClassNameComponent> = ({
 			<Button
 				className={ChangeProfileInfoFormStyle.button}
 				buttonType="submit"
+				type="rounded"
 				disabled={disableButton}
 			>
 				Save edit

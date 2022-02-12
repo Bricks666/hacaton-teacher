@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import React, { FC, ReactNode } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { BlockWrapper } from "../BlockWrapper";
 import { Link } from "../Link";
 import { ParagraphWithLinks } from "../ParagraphWithLinks";
-import { Picture } from "../Picture";
+import { Avatar } from "../Avatar";
 
 import PostStyle from "./Post.module.css";
 
-interface PostComponent extends ClassNameComponent {
+interface PostComponent extends ClassNameProps {
 	readonly id: number;
 	readonly authorId: number;
 	readonly authorName: string;
@@ -30,11 +30,7 @@ export const Post: FC<PostComponent> = ({
 	return (
 		<BlockWrapper className={classNames(PostStyle.card, className)}>
 			<Link className={PostStyle.photoLink} to={link} type="react">
-				<Picture
-					className={PostStyle.photo}
-					src={authorPhoto}
-					alt={authorName}
-				/>
+				<Avatar src={authorPhoto} alt={authorName} size="large" />
 			</Link>
 			{Header}
 			<ParagraphWithLinks className={PostStyle.content}>

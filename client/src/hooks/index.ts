@@ -18,3 +18,5 @@ export { useIsPageOwner } from "./useIsPageOwner";
 export { useAuthInfo } from "./useAuthInfo";
 export { useLoadingProfile } from "./useLoadingProfile";
 export { useUserPerformance } from "./useUserPerformance";
+export { useBooks } from "./useBooks";
+export { useLoadingBooks } from "./useLoadingBooks";

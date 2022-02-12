@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, Suspense, useEffect } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Header } from "./components/Header";
 import { OnlyAuth } from "./components/OnlyAuth";
@@ -33,10 +33,14 @@ export const App: FC = () => {
 								element={
 									isOnlyAuth ? (
 										<OnlyAuth>
-											<Component className={AppStyle.main} />
+											<Suspense fallback={<PageLoading isLoading={true} />}>
+												<Component className={AppStyle.main} />
+											</Suspense>
 										</OnlyAuth>
 									) : (
-										<Component className={AppStyle.main} />
+										<Suspense fallback={<PageLoading isLoading={true} />}>
+											<Component className={AppStyle.main} />
+										</Suspense>
 									)
 								}
 								key={path}

@@ -3,15 +3,15 @@ import React, { FC, useCallback, useRef, useState, MouseEvent } from "react";
 import classNames from "classnames";
 import { Popover } from "../../ui/Popover";
 import { useAuthInfo } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
-import { Picture } from "../../ui/Picture";
+import { ClassNameProps } from "../../interfaces/common";
 import { ProfileLinkMenu } from "../ProfileLinkMenu";
 import { Paragraph } from "../../ui/Paragraph";
 import { BlockWrapper } from "../../ui/BlockWrapper";
+import { Avatar } from "../../ui/Avatar";
 
 import ProfileLinkStyle from "./ProfileLink.module.css";
 
-export const ProfileLink: FC<ClassNameComponent> = ({ className }) => {
+export const ProfileLink: FC<ClassNameProps> = ({ className }) => {
 	const [isShow, setIsShow] = useState(false);
 	const parentRef = useRef(null);
 	const { photo, userName } = useAuthInfo();
@@ -24,6 +24,15 @@ export const ProfileLink: FC<ClassNameComponent> = ({ className }) => {
 		[setIsShow, isShow]
 	);
 
+	const modifiers = [
+		{
+			name: "offset",
+			options: {
+				offset: [0, 5],
+			},
+		},
+	];
+
 	return (
 		<div className={classNames(className)}>
 			<BlockWrapper>
@@ -35,23 +44,19 @@ export const ProfileLink: FC<ClassNameComponent> = ({ className }) => {
 					aria-haspopup={true}
 					tabIndex={0}
 				>
-					<Picture
-						className={ProfileLinkStyle.photo}
-						src={photo}
-						alt={userName}
-					/>
+					<Avatar src={photo} alt={userName} size="large" />
 					<Paragraph className={ProfileLinkStyle.name}>{userName}</Paragraph>
 				</div>
 			</BlockWrapper>
-			{isShow && (
-				<Popover
-					reference={parentRef.current}
-					onClose={toggleShow}
-					placement="bottom-end"
-				>
-					<ProfileLinkMenu />
-				</Popover>
-			)}
+			<Popover
+				reference={parentRef.current}
+				isOpen={isShow}
+				onClose={toggleShow}
+				placement="bottom-end"
+				modifiers={modifiers}
+			>
+				<ProfileLinkMenu />
+			</Popover>
 		</div>
 	);
 };

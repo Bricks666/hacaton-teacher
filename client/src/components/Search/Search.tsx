@@ -1,8 +1,10 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
 import { useForm } from "react-hook-form";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { useClickOutside } from "../../hooks";
+import { IconButton } from "../../ui/IconButton";
+import { SearchIcon } from "../../ui/SearchIcon";
 
 import SearchStyle from "./Search.module.css";
 
@@ -14,7 +16,7 @@ const initialValues: SearchRequest = {
 	searched: "",
 };
 
-interface SearchComponent extends ClassNameComponent {
+interface SearchComponent extends ClassNameProps {
 	readonly onSearch: (values: SearchRequest) => unknown;
 	readonly onShowChange: (isShow: boolean) => void;
 	readonly isShow: boolean;
@@ -72,13 +74,15 @@ export const Search: FC<SearchComponent> = ({
 				type="search"
 				placeholder="Search"
 			/>
-			<button
+			<IconButton
 				className={classNames(SearchStyle.button, {
 					[SearchStyle.button__show]: isShow,
 				})}
 				onClick={onClick}
-				type={isShow ? "submit" : "button"}
-			/>
+				color="third"
+			>
+				<SearchIcon />
+			</IconButton>
 		</form>
 	);
 };

@@ -1,7 +1,6 @@
 .button {
 	display: inline-block;
 
-	min-width: 108px;
 	width: max-content;
 	height: min-content;
 
@@ -13,16 +12,36 @@
 	font-weight: 500;
 	font-family: inherit;
 	text-align: center;
+	text-decoration: none;
 
 	cursor: pointer;
 }
 
-.button--common:disabled {
+.button--rounded {
+	border-radius: 10px;
+	border: 0;
+}
+
+.button--rounded:disabled {
 	cursor: auto;
 }
 
-.button--common:focus-visible {
+.button--rounded:focus-visible {
 	outline: 0;
+}
+
+.button--text {
+	border: 0;
+	border-radius: 0;
+}
+
+.button--text:hover {
+	text-decoration: underline;
+}
+
+.button--round {
+	padding: 8px;
+	border-radius: 50%;
 }
 
 .button__link {
@@ -53,20 +72,6 @@
 
 .button--secondary:focus-visible {
 	box-shadow: var(--third-color-darker) 0 0 0 4px;
-}
-
-.button--common {
-	border-radius: 10px;
-	border: 0;
-}
-
-.button--listed {
-	border: 0;
-	border-radius: 0;
-}
-
-.button--listed:hover {
-	text-decoration: underline;
 }
 
 .button--monotype {

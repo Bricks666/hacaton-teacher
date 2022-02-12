@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { Location, useNavigate } from "react-router-dom";
 import classNames from "classnames";
-import { ClassNameComponent, SubmitHandler } from "../../interfaces/common";
+import { ClassNameProps, SubmitHandler } from "../../interfaces/common";
 import { LoginRequest } from "../../interfaces/requests";
 import { Button } from "../../ui/Button";
 import { Checkbox } from "../../ui/Checkbox";
@@ -41,7 +41,7 @@ const validationSchema = Joi.object<LoginRequest>({
 	remember: Joi.boolean(),
 });
 
-export const LoginForm: FC<ClassNameComponent> = ({ className }) => {
+export const LoginForm: FC<ClassNameProps> = ({ className }) => {
 	const { handleSubmit, register, reset, formState } = useForm<LoginRequest>({
 		defaultValues: initialValues,
 		resolver: joiResolver(validationSchema),

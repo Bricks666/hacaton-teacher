@@ -1,0 +1,70 @@
+.button {
+	display: inline-block;
+
+	padding: 5px;
+
+	border: 0;
+
+	text-decoration: none;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-clip: padding-box;
+
+	box-shadow: rgba(99, 99, 99, 0.25) 1px 2px 8px;
+
+	cursor: pointer;
+}
+
+.button--edit {
+	background-size: contain;
+	background-image: url("../../assets/icons/dots.svg");
+}
+.button--cross {
+	background-image: url("../../assets/icons/cross.svg");
+}
+.button--search {
+	background-image: url("../../assets/icons/search.svg");
+}
+
+.button--round {
+	border-radius: 50%;
+}
+
+.button-rectangle {
+	border-radius: 0;
+}
+
+.button--small {
+	width: 25px;
+	height: 25px;
+}
+
+.button--medium {
+	width: 30px;
+	height: 30px;
+}
+
+.button--large {
+	width: 35px;
+	height: 35px;
+}
+
+.button--primary {
+	background-color: var(--main-color);
+}
+
+.button--third {
+	background-color: var(--third-color);
+}
+
+.button--monotype {
+	background-color: white;
+}
+
+.button--transparent {
+	background-color: transparent;
+
+	box-shadow: none;
+}

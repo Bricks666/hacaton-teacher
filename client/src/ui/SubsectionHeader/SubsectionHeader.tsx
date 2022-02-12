@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 
 import SubsectionHeaderStyle from "./SubsectionHeader.module.css";
 
-export const SubsectionHeader: FC<ClassNameComponent> = ({
+export const SubsectionHeader: FC<ClassNameProps> = ({
 	className,
 	children,
 }) => {

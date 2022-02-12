@@ -1,0 +1,14 @@
+.cross {
+	width: 100%;
+	height: 100%;
+
+	stroke: #000;
+	stroke-width: 3;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-opacity: 0.5;
+}
+
+.cross:hover {
+	stroke-opacity: 1;
+}

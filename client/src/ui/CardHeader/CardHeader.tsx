@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { Link } from "../Link";
 
 import CardHeaderStyle from "./CardHeader.module.css";
 
-interface CardHeaderComponent extends ClassNameComponent {
+interface CardHeaderComponent extends ClassNameProps {
 	readonly link?: string;
 	readonly header: string;
 }

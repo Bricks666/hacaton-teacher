@@ -16,7 +16,7 @@
 
 .profileLink {
 	margin-left: auto;
-	margin-right: 44px;
+	margin-right: min(44px, auto);
 }
 
 .search {

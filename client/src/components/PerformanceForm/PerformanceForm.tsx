@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { useForm } from "react-hook-form";
 import { GET_PARAMS } from "../../config";
 import { useAuthInfo, useGetParam, useUserPerformance } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { ChangePerformanceRequest } from "../../interfaces/requests";
 import { Button } from "../../ui/Button";
 import { Input } from "../../ui/Input";
@@ -14,7 +14,7 @@ import photoBG from "../../assets/photo.jpg";
 
 import PerformanceFormStyle from "./PerformanceForm.module.css";
 
-export const PerformanceForm: FC<ClassNameComponent> = ({ className }) => {
+export const PerformanceForm: FC<ClassNameProps> = ({ className }) => {
 	const performanceId = useGetParam(GET_PARAMS.performanceId);
 	const performance = useUserPerformance(performanceId) || {
 		header: "",

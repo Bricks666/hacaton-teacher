@@ -2,8 +2,10 @@ import React, { FC, useCallback, useState } from "react";
 import { CardManipulationMenu } from "../../ui/CardManipulationMenu";
 import { CardHeader } from "../../ui/CardHeader";
 import { Manipulation } from "../../interfaces/common";
+import { IconButton } from "../../ui/IconButton";
 
 import CardHeaderWithEditingStyle from "./CardHeaderWithEditing.module.css";
+import { DotsIcon } from "../../ui/DotsIcon";
 
 type CardHeaderWithEditingComponent = Parameters<typeof CardHeader>[0] & {
 	readonly manipulations: Manipulation[];
@@ -13,7 +15,7 @@ export const CardHeaderWithEditing: FC<CardHeaderWithEditingComponent> = ({
 	manipulations,
 	...props
 }) => {
-	const [parentRef, setParentRef] = useState<HTMLButtonElement | null>(null);
+	const [parentRef, setParentRef] = useState<HTMLElement | null>(null);
 	const [showPopover, setShowPopover] = useState(false);
 
 	const onToggleShowPopover = useCallback(
@@ -23,18 +25,18 @@ export const CardHeaderWithEditing: FC<CardHeaderWithEditingComponent> = ({
 
 	return (
 		<CardHeader className={CardHeaderWithEditingStyle.header} {...props}>
-			<button
-				className={CardHeaderWithEditingStyle.button}
-				onClick={onToggleShowPopover}
-				ref={setParentRef}
+			<div className={CardHeaderWithEditingStyle.button} ref={setParentRef}>
+				<IconButton type="rectangle" onClick={onToggleShowPopover}>
+					<DotsIcon />
+				</IconButton>
+			</div>
+
+			<CardManipulationMenu
+				reference={parentRef}
+				isOpen={showPopover}
+				onClose={onToggleShowPopover}
+				manipulations={manipulations}
 			/>
-			{showPopover && (
-				<CardManipulationMenu
-					reference={parentRef}
-					onClose={onToggleShowPopover}
-					manipulations={manipulations}
-				/>
-			)}
 		</CardHeader>
 	);
 };

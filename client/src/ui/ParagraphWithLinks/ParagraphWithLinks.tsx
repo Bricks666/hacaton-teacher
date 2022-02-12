@@ -1,10 +1,10 @@
 import React, { FC, ReactNode, ReactText } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { parseParagraphLink } from "../../utils";
 import { Link } from "../Link";
 import { Paragraph } from "../Paragraph";
 
-interface ParagraphWithLinksComponent extends ClassNameComponent {
+interface ParagraphWithLinksComponent extends ClassNameProps {
 	readonly children?: ReactText;
 }
 

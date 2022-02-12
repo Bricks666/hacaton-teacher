@@ -1,0 +1,15 @@
+.icon {
+	fill: none;
+
+	stroke: black;
+	stroke-width: 3;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-opacity: 0.5;
+
+  transform: translate(16%, 16%) scale(1.2);
+}
+
+.icon:hover {
+	stroke-opacity: 1;
+}

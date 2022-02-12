@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { useClosePopup } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { MainPopup } from "../../ui/MainPopup";
 import { PerformanceForm } from "../PerformanceForm";
 
-interface ChangePerformanceComponent extends ClassNameComponent {
+interface ChangePerformanceComponent extends ClassNameProps {
 	readonly isOpen: boolean;
 }
 
