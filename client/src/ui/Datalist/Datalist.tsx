@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 
 import DatalistStyle from "./Datalist.module.css";
 
-export const Datalist: FC<ClassNameComponent> = ({ className, children }) => {
+export const Datalist: FC<ClassNameProps> = ({ className, children }) => {
 	return (
 		<dl className={classNames(DatalistStyle.datalist, className)}>
 			{children}

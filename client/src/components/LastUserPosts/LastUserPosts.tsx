@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import { useLoadingUserPosts, useUserPosts } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { FriendlyList } from "../../ui/FriendlyList";
 import { EditablePost } from "../EditablePost";
 
-export const LastUserPosts: FC<ClassNameComponent> = ({ className }) => {
+export const LastUserPosts: FC<ClassNameProps> = ({ className }) => {
 	const posts = useUserPosts();
 	const isLoading = useLoadingUserPosts();
 

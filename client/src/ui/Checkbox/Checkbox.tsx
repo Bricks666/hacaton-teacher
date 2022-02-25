@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import React, { forwardRef, ReactText } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 
 import CheckboxStyle from "./Checkbox.module.css";
 
-interface CheckboxComponent extends ClassNameComponent, UseFormRegisterReturn {
+interface CheckboxComponent extends ClassNameProps, UseFormRegisterReturn {
 	readonly label: ReactText;
 }
 

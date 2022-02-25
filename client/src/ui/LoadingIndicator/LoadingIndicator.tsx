@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 
 import LoadingIndicatorStyle from "./LoadingIndicator.module.css";
 
-export const LoadingIndicator: FC<ClassNameComponent> = ({
+export const LoadingIndicator: FC<ClassNameProps> = ({
 	className,
 	children,
 }) => {

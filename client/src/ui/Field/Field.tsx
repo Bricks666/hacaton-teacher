@@ -4,10 +4,10 @@ import React, {
 	PropsWithChildren,
 } from "react";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { Input } from "../Input";
 
-interface FieldComponent extends ClassNameComponent, UseFormRegisterReturn {
+interface FieldComponent extends ClassNameProps, UseFormRegisterReturn {
 	readonly type?: HTMLInputTypeAttribute;
 	readonly error?: FieldError;
 	readonly inputClassName?: string;

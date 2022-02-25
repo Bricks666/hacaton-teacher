@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import classNames from "classnames";
 import { RegistrationForm } from "../../components/RegistrationForm";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { Logo } from "../../ui/Logo";
 import { Paragraph } from "../../ui/Paragraph";
 import { SaveLink } from "../../components/SaveLink";
@@ -9,7 +9,7 @@ import { ContentWrapper } from "../../ui/ContentWrapper/ContentWrapper";
 
 import RegistrationPageStyle from "./RegistrationPage.module.css";
 
-export const RegistrationPage: FC<ClassNameComponent> = ({ className }) => {
+export const RegistrationPage: FC<ClassNameProps> = ({ className }) => {
 	return (
 		<main className={classNames(className)}>
 			<ContentWrapper className={RegistrationPageStyle.registrationPage}>

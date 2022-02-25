@@ -5,7 +5,7 @@ import { Path } from "react-router-dom";
 
 export type SimpleFunction<R> = () => R;
 
-export interface ClassNameComponent {
+export interface ClassNameProps {
 	readonly className?: string;
 }
 
@@ -25,7 +25,6 @@ export type ExtractProps<
 
 export interface Manipulation {
 	readonly label: string;
-	readonly type: "button" | "link";
 	readonly to?: string | Partial<Path>;
 	readonly onCLick?: MouseEventHandler;
 }

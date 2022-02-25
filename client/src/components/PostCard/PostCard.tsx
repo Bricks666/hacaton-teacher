@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import { ClassNameComponent, ExtractProps } from "../../interfaces/common";
+import { ClassNameProps, ExtractProps } from "../../interfaces/common";
 import { Post } from "../../ui/Post";
 import { CardHeader } from "../../ui/CardHeader";
 
 interface PostCardComponent
-	extends ClassNameComponent,
+	extends ClassNameProps,
 		ExtractProps<typeof Post, "Header"> {}
 
 export const PostCard: FC<PostCardComponent> = (props) => {

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { FC } from "react";
 import { useIsPageOwner, useProfileInfo } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { Button } from "../../ui/Button";
 import { DataDescription } from "../../ui/DataDescription";
 import { Datalist } from "../../ui/Datalist";
@@ -10,7 +10,7 @@ import { Picture } from "../../ui/Picture";
 
 import ProfileInfoStyle from "./ProfileInfo.module.css";
 
-export const ProfileInfo: FC<ClassNameComponent> = ({ className }) => {
+export const ProfileInfo: FC<ClassNameProps> = ({ className }) => {
 	const user = useProfileInfo();
 	const isPageOwner = useIsPageOwner();
 
@@ -51,11 +51,7 @@ export const ProfileInfo: FC<ClassNameComponent> = ({ className }) => {
 			</Datalist>
 
 			{isPageOwner && (
-				<Button
-					className={ProfileInfoStyle.button}
-					buttonType="link"
-					to="change"
-				>
+				<Button className={ProfileInfoStyle.button} to="change">
 					Edit profile
 				</Button>
 			)}

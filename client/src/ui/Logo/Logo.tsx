@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classNames from "classnames";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { Picture } from "../Picture";
 import image from "./image.svg";
 import imageAndText from "./image-and-text.svg";
@@ -10,7 +10,7 @@ import LogoStyle from "./Logo.module.css";
 
 type LogoType = "text" | "image and text" | "image";
 
-interface LogoComponent extends ClassNameComponent {
+interface LogoComponent extends ClassNameProps {
 	readonly type: LogoType;
 	readonly logoClassName?: string;
 	readonly captionClassName?: string;

@@ -1,0 +1,42 @@
+.link {
+	display: grid;
+	grid-template-rows: 1fr min-content min-content;
+
+	height: 100%;
+	width: 100%;
+}
+
+.link:hover .photo {
+	transform: scale(1.2) rotate(5deg);
+}
+
+.link:hover .name,
+.link:hover .author {
+	text-decoration: underline;
+}
+
+.photo {
+	transition-property: transform;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-out;
+}
+
+.photoContainer {
+	overflow: hidden;
+}
+
+.author {
+	line-height: 2.4em;
+	font-size: 10px;
+	text-decoration: none;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.name {
+	font-size: 14px;
+	line-height: 1.75em;
+	text-decoration: none;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

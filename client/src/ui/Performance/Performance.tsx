@@ -1,12 +1,12 @@
 import classNames from "classnames";
 import React, { FC, ReactNode } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { Paragraph } from "../Paragraph";
 import { Picture } from "../Picture";
 
 import PerformanceStyle from "./Performance.module.css";
 
-interface PerformanceComponent extends ClassNameComponent {
+interface PerformanceComponent extends ClassNameProps {
 	readonly id: number;
 	readonly header: string;
 	readonly photo: string;

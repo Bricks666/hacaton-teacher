@@ -1,12 +1,12 @@
 import classNames from "classnames";
 import React, { ComponentType } from "react";
-import { AnyObject, ClassNameComponent } from "../../interfaces/common";
+import { AnyObject, ClassNameProps } from "../../interfaces/common";
 
 import ListStyle from "./List.module.css";
 
 type ListType = "numbered" | "unnumbered";
 
-interface ListComponentProps<T extends AnyObject> extends ClassNameComponent {
+interface ListComponentProps<T extends AnyObject> extends ClassNameProps {
 	readonly items: T[];
 	readonly Card: ComponentType<T>;
 	readonly type: ListType;
@@ -26,9 +26,10 @@ export const List = <T,>({
 }: ListComponentProps<T>) => {
 	const elements = items.slice(0, count).map((item) => (
 		<li className={itemClassName} key={item[indexedBy] as unknown as string}>
-			<Card {...item} />
+			<Card {...item} className={ListStyle.item} />
 		</li>
 	));
+	console.log(ListStyle.item);
 	switch (type) {
 		case "numbered": {
 			return (

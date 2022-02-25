@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 
 import NavigationItemStyle from "./NavigationItem.module.css";
 
-interface NavigationComponent extends ClassNameComponent {
+interface NavigationComponent extends ClassNameProps {
 	readonly path: string;
 }
 

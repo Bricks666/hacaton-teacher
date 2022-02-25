@@ -6,7 +6,7 @@ import { LastUserPosts } from "../../components/LastUserPosts/LastUserPosts";
 import { ProfileInfo } from "../../components/ProfileInfo";
 import { GET_PARAMS, POPUPS } from "../../config";
 import { useLoadingProfile, usePrepareLink } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { ContentLoading } from "../../ui/ContentLoading";
 import { ContentWrapper } from "../../ui/ContentWrapper/ContentWrapper";
 import { ProfileBlock } from "../../ui/ProfileBlock";
@@ -14,7 +14,7 @@ import { SectionHeader } from "../../ui/SectionHeader";
 
 import ProfilePageStyle from "./ProfilePage.module.css";
 
-export const ProfilePage: FC<ClassNameComponent> = ({ className }) => {
+export const ProfilePage: FC<ClassNameProps> = ({ className }) => {
 	const userBlog = usePrepareLink({
 		query: {
 			[GET_PARAMS.popups]: POPUPS.userBlog,
@@ -32,9 +32,10 @@ export const ProfilePage: FC<ClassNameComponent> = ({ className }) => {
 	return (
 		<main className={className}>
 			<ContentWrapper className={ProfilePageStyle.profilePage}>
-				<SectionHeader className={ProfilePageStyle.header}>
-					Profile
-				</SectionHeader>
+				<SectionHeader
+					className={ProfilePageStyle.header}
+					label="Profile Page"
+				/>
 				<ContentLoading
 					className={ProfilePageStyle.loading}
 					isLoading={isLoading}

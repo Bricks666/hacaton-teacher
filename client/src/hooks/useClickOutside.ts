@@ -9,21 +9,22 @@ export const useClickOutside = (
 		(evt: globalThis.MouseEvent) => {
 			const target = evt.target as HTMLElement;
 
-			if (
+			const isClickOutside =
 				target !== reference &&
-				!reference?.innerHTML.includes(target.innerHTML) &&
-				!conditions?.some((condition) => !condition)
-			) {
+				!reference?.contains(target) &&
+				conditions?.every((condition) => condition);
+
+			if (isClickOutside) {
 				onClickOutside(evt as unknown as MouseEvent);
 			}
 		},
 		[onClickOutside, reference, conditions]
 	);
 	useEffect(() => {
-		document.addEventListener("click", onClick);
+		document.addEventListener("mousedown", onClick);
 
 		return () => {
-			document.removeEventListener("click", onClick);
+			document.removeEventListener("mousedown", onClick);
 		};
 	}, [onClick]);
 };

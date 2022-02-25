@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 
 import ContentWrapperStyle from "./ContentWrapper.module.css";
 
-export const ContentWrapper: FC<ClassNameComponent> = ({
+export const ContentWrapper: FC<ClassNameProps> = ({
 	className,
 	children,
 }) => {

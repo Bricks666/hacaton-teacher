@@ -1,0 +1,23 @@
+.avatar {
+	font-size: 1rem;
+	color: white;
+
+	background-color: vat(--main-color);
+
+	border-radius: 50%;
+}
+
+.avatar--small {
+	width: 35px;
+	height: 35px;
+}
+
+.avatar--medium {
+	width: 45px;
+	height: 45px;
+}
+
+.avatar--large {
+	width: 55px;
+	height: 55px;
+}

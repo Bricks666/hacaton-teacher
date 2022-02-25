@@ -1,19 +1,19 @@
 import React, { FC } from "react";
 import { GET_PARAMS, POPUPS } from "../../config";
-import { useClosePopup, useIsPageOwner, usePrepareLink } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
+import { useGoBack, useIsPageOwner, usePrepareLink } from "../../hooks";
+import { ClassNameProps } from "../../interfaces/common";
 import { Button } from "../../ui/Button";
 import { FullScreenPopup } from "../../ui/FullScreenPopup";
 import { UserPosts } from "../UserPosts";
 
 import UserBlogStyle from "./UserBlog.module.css";
 
-interface UserBlog extends ClassNameComponent {
+interface UserBlog extends ClassNameProps {
 	readonly isOpen: boolean;
 }
 
 export const UserBlog: FC<UserBlog> = ({ isOpen }) => {
-	const onClose = useClosePopup();
+	const onClose = useGoBack();
 	const isPageOwner = useIsPageOwner();
 	const postFormLink = usePrepareLink({
 		addQueryParam: {
@@ -31,7 +31,6 @@ export const UserBlog: FC<UserBlog> = ({ isOpen }) => {
 			{isPageOwner && (
 				<Button
 					className={UserBlogStyle.button}
-					buttonType="link"
 					color="secondary"
 					to={postFormLink}
 				>

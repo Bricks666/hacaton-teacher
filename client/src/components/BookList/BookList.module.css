@@ -1,0 +1,9 @@
+.list {
+	display: grid;
+	gap: 25px;
+	grid-template-columns: repeat(6, 1fr);
+}
+
+.book {
+	height: 315px;
+}

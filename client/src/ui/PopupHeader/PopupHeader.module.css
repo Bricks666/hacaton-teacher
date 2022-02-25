@@ -1,0 +1,10 @@
+.header {
+	position: relative;
+}
+
+.button {
+	position: absolute;
+
+	right: 1rem;
+  top: 0;
+}

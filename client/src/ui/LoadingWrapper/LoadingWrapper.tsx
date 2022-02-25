@@ -1,10 +1,10 @@
 import React, { FC, ReactNode } from "react";
 import classNames from "classnames";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 
 import LoadingWrapperStyle from "./LoadingWrapper.module.css";
 
-interface LoadingWrapperComponent extends ClassNameComponent {
+interface LoadingWrapperComponent extends ClassNameProps {
 	readonly isLoading: boolean;
 	readonly LoadingIndicator: ReactNode;
 }

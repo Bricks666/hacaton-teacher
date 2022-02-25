@@ -1,14 +1,14 @@
 import classNames from "classnames";
 import React, { FC } from "react";
 import { useLoadingUserPerformances, useUserPerformances } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { FriendlyList } from "../../ui/FriendlyList";
 import { EditablePerformance } from "../EditablePerformance";
 import { PerformanceCard } from "../PerformanceCard";
 
 import UserPerformancesStyle from "./UserPerformances.module.css";
 
-interface UserPerformancesComponent extends ClassNameComponent {
+interface UserPerformancesComponent extends ClassNameProps {
 	readonly isPageOwner: boolean;
 }
 

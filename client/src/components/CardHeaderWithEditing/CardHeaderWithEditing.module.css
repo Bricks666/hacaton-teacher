@@ -7,17 +7,8 @@
 }
 
 .button {
-	width: 25px;
-	height: 25px;
-
-  margin-right: -80px;
+	margin-right: -80px;
 
 	border-radius: 0;
 	border: 0;
-
-	background-color: transparent;
-	background-image: url("./dots.svg");
-	background-repeat: no-repeat;
-	background-size: 100%;
-	background-position: center;
 }

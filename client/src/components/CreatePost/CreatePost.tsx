@@ -1,20 +1,20 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { useAuthInfo, useClosePopup } from "../../hooks";
-import { ClassNameComponent } from "../../interfaces/common";
+import { useAuthInfo, useGoBack } from "../../hooks";
+import { ClassNameProps } from "../../interfaces/common";
+import { Avatar } from "../../ui/Avatar";
 import { MainPopup } from "../../ui/MainPopup";
-import { Picture } from "../../ui/Picture";
 import { CreatePostFrom } from "../CreatePostForm";
 
 import CreatePostStyle from "./CreatePost.module.css";
 
-interface CreatePostComponent extends ClassNameComponent {
+interface CreatePostComponent extends ClassNameProps {
 	readonly isOpen: boolean;
 }
 
 export const CreatePost: FC<CreatePostComponent> = ({ className, isOpen }) => {
 	const { photo, userName } = useAuthInfo();
-	const onClose = useClosePopup();
+	const onClose = useGoBack();
 
 	return (
 		<MainPopup
@@ -23,12 +23,7 @@ export const CreatePost: FC<CreatePostComponent> = ({ className, isOpen }) => {
 			onClose={onClose}
 			title="New post"
 		>
-			<Picture
-				className={CreatePostStyle.photo}
-				src={photo}
-				alt={userName}
-				title={userName}
-			/>
+			<Avatar src={photo} alt={userName} size="large" />
 			<CreatePostFrom className={CreatePostStyle.form} />
 		</MainPopup>
 	);

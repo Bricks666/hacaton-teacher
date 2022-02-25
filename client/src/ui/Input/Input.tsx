@@ -5,11 +5,11 @@ import React, {
 	PropsWithChildren,
 } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 
 import InputStyle from "./Input.module.css";
 
-interface InputComponent extends UseFormRegisterReturn, ClassNameComponent {
+interface InputComponent extends UseFormRegisterReturn, ClassNameProps {
 	readonly type?: HTMLInputTypeAttribute;
 	readonly inputClassName?: string;
 	readonly placeholder?: string;

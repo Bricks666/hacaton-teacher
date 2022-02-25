@@ -1,13 +1,12 @@
 import classNames from "classnames";
 import React, { FC, MouseEventHandler } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
-import { CrossButton } from "../CrossButton";
+import { ClassNameProps } from "../../interfaces/common";
 import { Overlay } from "../Overlay";
-import { SubsectionHeader } from "../SubsectionHeader";
+import { PopupHeader } from "../PopupHeader";
 
 import MainPopupStyle from "./MainPopup.module.css";
 
-interface MainPopupComponent extends ClassNameComponent {
+interface MainPopupComponent extends ClassNameProps {
 	readonly isOpen: boolean;
 	readonly onClose: MouseEventHandler<HTMLElement>;
 	readonly title: string;
@@ -26,10 +25,7 @@ export const MainPopup: FC<MainPopupComponent> = ({
 		<Overlay isOpen={isOpen} onClose={onClose}>
 			<div className={classNames(MainPopupStyle.popup, className)}>
 				<div className={MainPopupStyle.head}>
-					<SubsectionHeader className={MainPopupStyle.header}>
-						{title}
-					</SubsectionHeader>
-					<CrossButton className={MainPopupStyle.cross} onClick={onClose} />
+					<PopupHeader header={title} onClose={onClose} />
 				</div>
 				<div className={contentClassName}>{children}</div>
 			</div>

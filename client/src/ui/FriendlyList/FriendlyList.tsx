@@ -1,12 +1,12 @@
 import React, { ComponentType } from "react";
-import { ClassNameComponent, ExtractProps } from "../../interfaces/common";
+import { ClassNameProps, ExtractProps } from "../../interfaces/common";
 import { ContentLoading } from "../ContentLoading";
 import { List } from "../List";
 import { Paragraph } from "../Paragraph";
 
 type ListType = Parameters<typeof List>[0]["type"];
 
-type FriendlyListProps<T> = ClassNameComponent &
+type FriendlyListProps<T> = ClassNameProps &
 	ExtractProps<typeof ContentLoading> & {
 		readonly emptyLabel?: string;
 		readonly items: T[];

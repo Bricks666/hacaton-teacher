@@ -12,6 +12,7 @@ export const EditablePost: FC<ExtractProps<typeof Post, "Header">> = (
 	const editFormLink = usePrepareLink({
 		addQueryParam: {
 			[GET_PARAMS.popups]: POPUPS.post,
+			[GET_PARAMS.postId]: props.id,
 		},
 	});
 

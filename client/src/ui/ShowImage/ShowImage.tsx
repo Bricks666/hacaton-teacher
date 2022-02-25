@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { Picture } from "../Picture";
 
 import ShowImageStyle from "./ShowImage.module.css";
 
-interface ShowImageComponent extends ClassNameComponent {
+interface ShowImageComponent extends ClassNameProps {
 	readonly photo: File | string;
 	readonly alt: string;
 }

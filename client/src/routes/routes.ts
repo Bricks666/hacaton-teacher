@@ -1,13 +1,16 @@
-import { ComponentType } from "react";
-import { ClassNameComponent } from "../interfaces/common";
+import { ComponentType, lazy } from "react";
+import { ClassNameProps } from "../interfaces/common";
 import { BlogPage } from "../pages/BlogPage";
 import { LoginPage } from "../pages/LoginPage";
 import { ProfilePage } from "../pages/ProfilePage";
 import { RegistrationPage } from "../pages/RegistrationPage";
 
+const LibraryPage = lazy(() => import("../pages/LibraryPage"));
+const BookPage = lazy(() => import("../pages/BookPage"));
+
 interface Route {
 	readonly path: string;
-	readonly Component: ComponentType<ClassNameComponent>;
+	readonly Component: ComponentType<ClassNameProps>;
 	readonly isOnlyAuth?: boolean;
 }
 
@@ -28,5 +31,13 @@ export const routes: Route[] = [
 	{
 		Component: BlogPage,
 		path: "/blog/*",
+	},
+	{
+		Component: LibraryPage,
+		path: "/library/*",
+	},
+	{
+		Component: BookPage,
+		path: "/library/:id",
 	},
 ];

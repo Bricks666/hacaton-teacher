@@ -1,0 +1,50 @@
+.book {
+	display: grid;
+	grid-template-columns: 600px 300px;
+	grid-template-rows: min-content 1fr min-content;
+	row-gap: 6px;
+	column-gap: calc(100% - 600px - 300px);
+}
+
+.header {
+	font-size: 35px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.dataList {
+	display: grid;
+	column-gap: 5px;
+
+	height: min-content;
+}
+.pair {
+	display: flex;
+
+	column-gap: 4px;
+}
+
+.dataTerm {
+	font-size: 14;
+	line-height: 1.75em;
+	color: var(--main-color);
+}
+
+.dataDescription {
+	font-size: 14;
+	line-height: 1.75em;
+	font-weight: 500;
+}
+
+.photo {
+	grid-row: span 3;
+	grid-column: 2;
+
+	height: 460px;
+
+	margin-left: auto;
+}
+
+.button {
+	justify-self: end;
+}

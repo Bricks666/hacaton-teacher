@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import { ClassNameComponent } from "../../interfaces/common";
+import { ClassNameProps } from "../../interfaces/common";
 import { Picture } from "../Picture";
 
-interface PerformanceComponent extends ClassNameComponent {
+interface PerformanceComponent extends ClassNameProps {
 	readonly photo: string;
 	readonly header: string;
 }

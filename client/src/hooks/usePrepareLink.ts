@@ -11,7 +11,6 @@ interface UserPrepareLinkParams {
 	readonly savePrevQuery?: boolean;
 	readonly addQueryParam?: Record<string, string | number>;
 }
-/* TODO: Можно сделать так, чтобы можно было открыть несколько popup'ов, если понадобится */
 
 export const usePrepareLink = ({
 	query = {},

@@ -1,29 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useGetParam } from ".";
 import { GET_PARAMS } from "../config";
 
-const parsePopups = (rawPopups: string) => {
+const parsePopups = (rawPopups: string | null) => {
 	return rawPopups ? rawPopups.split(",") : [];
 };
 
 export const usePopups = () => {
 	const rawPopups = useGetParam(GET_PARAMS.popups);
 	const [mountedPopups, setMountedPopups] = useState<string[]>([]);
+	const timeout = useRef<null | NodeJS.Timeout>(null);
 
 	useEffect(() => {
 		if (rawPopups) {
 			const popups = parsePopups(rawPopups);
+			timeout.current && clearTimeout(timeout.current);
 			setMountedPopups(popups);
 		} else {
-			setMountedPopups([]);
+			timeout.current = setTimeout(() => setMountedPopups([]), 300);
 		}
 	}, [rawPopups]);
 
 	useEffect(() => {
 		return () => {
-			setMountedPopups([]);
+			timeout.current && clearTimeout(timeout.current);
 		};
 	}, []);
 
-	return { mountedPopups };
+	const popups = useMemo(() => parsePopups(rawPopups), [rawPopups]);
+
+	return { mountedPopups, popups };
 };

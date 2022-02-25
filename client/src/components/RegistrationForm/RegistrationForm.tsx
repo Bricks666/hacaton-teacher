@@ -11,7 +11,7 @@ import {
 	MIN_PASSWORD_LENGTH,
 } from "../../constants";
 import { useLocationState } from "../../hooks";
-import { ClassNameComponent, SubmitHandler } from "../../interfaces/common";
+import { ClassNameProps, SubmitHandler } from "../../interfaces/common";
 import { RegistrationRequest } from "../../interfaces/requests";
 import { registration } from "../../models/Auth";
 import { Button } from "../../ui/Button";
@@ -60,7 +60,7 @@ const validationSchema = Joi.object<RegistrationRequest>({
 		.messages({ "any.only": "Пароли должны совпадать" }),
 });
 
-export const RegistrationForm: FC<ClassNameComponent> = ({ className }) => {
+export const RegistrationForm: FC<ClassNameProps> = ({ className }) => {
 	const { handleSubmit, register, reset, formState } =
 		useForm<RegistrationRequest>({
 			resolver: joiResolver(validationSchema),

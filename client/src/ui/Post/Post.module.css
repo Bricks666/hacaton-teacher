@@ -16,10 +16,6 @@
 	height: 55px;
 }
 
-.photo {
-	border-radius: 50%;
-}
-
 .content {
 	grid-column: 2;
 
