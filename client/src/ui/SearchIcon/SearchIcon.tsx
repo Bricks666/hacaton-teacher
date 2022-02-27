@@ -6,7 +6,7 @@ import SearchIconStyle from "./SearchIcon.module.css";
 
 export const SearchIcon: FC<ClassNameProps> = ({ className }) => {
 	return (
-		<SvgIcon className={className}>
+		<SvgIcon className={className} viewBox="0 0 20 25">
 			<g className={SearchIconStyle.icon}>
 				<circle cx="5.469" cy="5.469" r="4.969" />
 				<path d="m8.624 9.573 3.797 5.907" />

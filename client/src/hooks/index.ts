@@ -21,3 +21,5 @@ export { useUserPerformance } from "./useUserPerformance";
 export { useBooks } from "./useBooks";
 export { useLoadingBooks } from "./useLoadingBooks";
 export { useBook } from "./useBook";
+export { useEvents } from "./useEvents";
+export { useLoadingEvents } from "./useLoadingEvents";

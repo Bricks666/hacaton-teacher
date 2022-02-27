@@ -1,5 +1,5 @@
 .button {
-	display: inline-block;
+	display: flex;
 
 	width: max-content;
 	height: min-content;
@@ -11,7 +11,7 @@
 	letter-spacing: -0.011em;
 	font-weight: 500;
 	font-family: inherit;
-	text-align: center;
+	align-items: center;
 	text-decoration: none;
 
 	cursor: pointer;
@@ -19,6 +19,11 @@
 
 .button--rounded {
 	border-radius: 10px;
+	border: 0;
+}
+
+.button--rectangle {
+	border-radius: 0;
 	border: 0;
 }
 

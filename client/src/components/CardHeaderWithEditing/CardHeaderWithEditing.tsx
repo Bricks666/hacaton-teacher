@@ -3,9 +3,9 @@ import { CardManipulationMenu } from "../../ui/CardManipulationMenu";
 import { CardHeader } from "../../ui/CardHeader";
 import { Manipulation } from "../../interfaces/common";
 import { IconButton } from "../../ui/IconButton";
+import { DotsIcon } from "../../ui/DotsIcon";
 
 import CardHeaderWithEditingStyle from "./CardHeaderWithEditing.module.css";
-import { DotsIcon } from "../../ui/DotsIcon";
 
 type CardHeaderWithEditingComponent = Parameters<typeof CardHeader>[0] & {
 	readonly manipulations: Manipulation[];

@@ -5,14 +5,17 @@
 	grid-template-rows: min-content 1fr;
 	gap: 30px;
 
+  min-height: 260px;
+
 	padding-top: 6px;
 	padding-right: 40px;
-	padding-bottom: 40px;
 
-	background-color: white;
+	background-color: #f5f5f5;
 
 	border-top-right-radius: 30px;
 	border-bottom-right-radius: 30px;
+
+	box-shadow: rgba(99, 99, 99, 0.5) 0 2px 8px;
 }
 
 .picture {
@@ -22,4 +25,8 @@
 
 .header {
 	margin-left: 90px;
+}
+
+.content {
+	margin-bottom: 40px;
 }

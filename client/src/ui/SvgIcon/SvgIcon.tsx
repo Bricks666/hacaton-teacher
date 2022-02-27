@@ -7,21 +7,16 @@ import SvgIconStyle from "./SvgIcon.module.css";
 type Size = "small" | "medium" | "large";
 
 interface SvgIconProps extends ClassNameProps {
+	readonly viewBox: string;
 	readonly size?: Size;
 }
-
-const viewBoxes: Record<Size, string> = {
-	large: "0 0 30 30",
-	medium: "0 0 25 25",
-	small: "0 0 20 20",
-};
 
 export const SvgIcon: FC<SvgIconProps> = ({
 	children,
 	className,
+	viewBox,
 	size = "medium",
 }) => {
-	const viewBox = viewBoxes[size];
 	const classes = classNames(
 		SvgIconStyle.icon,
 		SvgIconStyle[`icon--${size}`],

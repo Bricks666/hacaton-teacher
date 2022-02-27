@@ -2,14 +2,15 @@ import React, { FC } from "react";
 import { ClassNameProps } from "../../interfaces/common";
 import { SvgIcon } from "../SvgIcon";
 
-import CrossIconStyle from "./CrossIcon.module.css";
-
-export const CrossIcon: FC<ClassNameProps> = ({ className }) => {
+export const ArrowIcon: FC<ClassNameProps> = ({ className }) => {
 	return (
 		<SvgIcon className={className} viewBox="0 0 25 25">
 			<path
-				className={CrossIconStyle.cross}
-				d="M23.44 1.56 1.56 23.44m0-21.88 21.88 21.88"
+				d="M3.594 11.5h15.812M12.938 5.031l6.468 6.469-6.468 6.469"
+				stroke="#fff"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</SvgIcon>
 	);

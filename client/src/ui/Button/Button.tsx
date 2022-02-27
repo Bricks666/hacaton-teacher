@@ -7,7 +7,7 @@ import ButtonStyle from "./Button.module.css";
 
 type ButtonType = "submit" | "reset" | "button";
 type Color = "primary" | "secondary" | "monotype";
-type Type = "rounded" | "text" | "round";
+type Type = "rounded" | "text" | "round" | "rectangle";
 
 interface ButtonComponent extends ClassNameProps {
 	readonly onClick?: MouseEventHandler<HTMLButtonElement>;
